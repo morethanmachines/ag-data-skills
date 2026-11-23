@@ -1,0 +1,40 @@
+{
+  "id": "restriction-sources",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Where a restriction comes from.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "label",
+      "label": "Product label"
+    },
+    {
+      "code": "permit",
+      "label": "Permit"
+    },
+    {
+      "code": "buyer",
+      "label": "Buyer requirement",
+      "definition": "For example a wine company or grain buyer schedule."
+    },
+    {
+      "code": "industry_body",
+      "label": "Industry body"
+    },
+    {
+      "code": "regulator",
+      "label": "Regulator"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

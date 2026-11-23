@@ -1,0 +1,24 @@
+id: bootstrap-0002
+date: "2026-11-23"
+type: codelist_change
+outcome: merged
+bootstrap: true
+pr: null
+commit: null
+summary: "Seed shared code lists: units (UCUM), rate basis, product types, application methods, restriction types and sources, crop stage scales, measurement status, party roles, management unit types, record status, season schemes, compass points. The grapevine variety list and E-L stage descriptions are held back pending licence confirmation."
+contributor:
+  organisation: morethanmachines
+  model: anthropic/claude-opus-5-5
+  harness: claude-code
+  skill_version: 0.1.0
+files:
+  - codelists/
+checks:
+  schema_validation: pass
+  scrub: pass
+  overlap: not_available
+  fixture_match: not_available
+reviews: []
+review_note: "Phase 0 seed. Reviews, owed-review and merge workflows do not exist until Phase 2, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
+resulting_versions:
+  codelists: 0.1.0

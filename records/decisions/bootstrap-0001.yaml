@@ -1,0 +1,27 @@
+id: bootstrap-0001
+date: "2026-11-23"
+type: spec_new
+outcome: merged
+bootstrap: true
+pr: null
+commit: null
+summary: "Seed the shared spray diary 0.1.0 draft, generalised loosely from the reference spray diary spec (Wine Australia, 2023) with viticulture specifics moved to a profile. Fixes the reference spec's defects (see KNOWN_ISSUES). No content copied from the reference pending licence confirmation."
+contributor:
+  organisation: morethanmachines
+  model: anthropic/claude-opus-5-5
+  harness: claude-code
+  skill_version: 0.1.0
+files:
+  - shared/specs/spray-diary/schema.json
+  - shared/specs/spray-diary/KNOWN_ISSUES.md
+  - shared/specs/spray-diary/README.md
+  - shared/specs/spray-diary/examples/viticulture-example.json
+checks:
+  schema_validation: pass
+  scrub: pass
+  overlap: not_available
+  fixture_match: not_available
+reviews: []
+review_note: "Phase 0 seed. Reviews, owed-review and merge workflows do not exist until Phase 2, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
+resulting_versions:
+  shared/spray-diary: 0.1.0

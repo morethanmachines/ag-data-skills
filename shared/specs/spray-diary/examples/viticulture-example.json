@@ -1,0 +1,172 @@
+{
+  "spec": "shared/spray-diary",
+  "spec_version": "0.1.0",
+  "profile": "viticulture/spray-diary",
+  "records": [
+    {
+      "record_id": "EX-0001",
+      "record_id_scheme": "example",
+      "start": {
+        "local": "2025-11-02T06:00",
+        "timezone": "Australia/Adelaide",
+        "utc_offset": "+10:30"
+      },
+      "end": {
+        "local": "2025-11-02T08:15",
+        "timezone": "Australia/Adelaide",
+        "utc_offset": "+10:30"
+      },
+      "status": "submitted",
+      "season": {
+        "scheme": "vintage",
+        "label": "2026",
+        "year": 2026
+      },
+      "business": {
+        "id": "51 000 000 000",
+        "id_scheme": "ABN",
+        "name": "Synthetic Ridge Vineyard",
+        "role": "owner"
+      },
+      "applied_by": [
+        {
+          "name": "Robin Fixture",
+          "role": "employee"
+        }
+      ],
+      "management_units": [
+        {
+          "unit_type": "vineyard_block",
+          "id": "EX-B1",
+          "id_scheme": "grower",
+          "name": "Example North",
+          "spec": "viticulture/vineyard-block",
+          "area_treated": {
+            "value": 1.5,
+            "unit": "har"
+          },
+          "crop": {
+            "species": "Vitis vinifera",
+            "variety": "Shiraz"
+          }
+        }
+      ],
+      "crop_stage": {
+        "scale": "E-L",
+        "value": 15,
+        "text": "EL15"
+      },
+      "products_applied": [
+        {
+          "product_name": "Synth Example 800 WG",
+          "registration": {
+            "number": "SYN-99001",
+            "scheme": "APVMA"
+          },
+          "product_type": "fungicide",
+          "active_constituents": [
+            {
+              "name": "examplin",
+              "concentration": {
+                "value": 800,
+                "unit": "g/kg"
+              }
+            }
+          ],
+          "targets": [
+            "powdery mildew"
+          ],
+          "rate": {
+            "value": 200,
+            "unit": "g",
+            "basis": "per_100L_dilute"
+          },
+          "concentration_factor": 2,
+          "restrictions": [
+            {
+              "type": "withholding_period",
+              "applies_to": "harvest",
+              "period": {
+                "value": 14,
+                "unit": "d"
+              },
+              "source": "label",
+              "reference": "synthetic label"
+            }
+          ]
+        }
+      ],
+      "application": {
+        "method": "airblast"
+      },
+      "carrier": {
+        "type": "water",
+        "rate": {
+          "value": 400,
+          "unit": "L",
+          "basis": "per_hectare"
+        }
+      },
+      "conditions": [
+        {
+          "wind_speed": {
+            "value": 9,
+            "unit": "km/h",
+            "status": "measured"
+          },
+          "wind_direction": "SE",
+          "temperature": {
+            "value": 16,
+            "unit": "Cel",
+            "status": "measured"
+          },
+          "relative_humidity": {
+            "value": 60,
+            "unit": "%",
+            "status": "measured"
+          },
+          "location": {
+            "latitude": -35.01,
+            "longitude": 138.1,
+            "precision_m": 1000
+          }
+        }
+      ],
+      "comments": [
+        {
+          "text": "Synthetic example comment from the buyer.",
+          "author_role": "buyer"
+        }
+      ]
+    }
+  ],
+  "mapping": {
+    "sources": [
+      {
+        "fingerprint_id": "fp-000000000000",
+        "crosswalk": null,
+        "fields": [
+          {
+            "target": "records[].start",
+            "from": "Date + Start",
+            "evidence": {
+              "tier": "E3",
+              "ref": "column headers Date and Start"
+            },
+            "semantics": {
+              "timezone": {
+                "value": "Australia/Adelaide",
+                "evidence": {
+                  "tier": "E5",
+                  "ref": "user stated the vineyard is in South Australia"
+                }
+              }
+            }
+          }
+        ],
+        "losses": [],
+        "unresolved_semantics": []
+      }
+    ]
+  }
+}

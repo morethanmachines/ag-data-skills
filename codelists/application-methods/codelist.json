@@ -1,0 +1,55 @@
+{
+  "id": "application-methods",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Application methods.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "airblast",
+      "label": "Airblast sprayer"
+    },
+    {
+      "code": "ground_boom",
+      "label": "Ground boom"
+    },
+    {
+      "code": "aerial",
+      "label": "Aerial (fixed wing or helicopter)"
+    },
+    {
+      "code": "drone",
+      "label": "Drone (remotely piloted aircraft)"
+    },
+    {
+      "code": "undervine_boom",
+      "label": "Undervine boom"
+    },
+    {
+      "code": "spot",
+      "label": "Spot spraying"
+    },
+    {
+      "code": "knapsack",
+      "label": "Knapsack or handgun"
+    },
+    {
+      "code": "fogger",
+      "label": "Fogger or mister"
+    },
+    {
+      "code": "chemigation",
+      "label": "Chemigation"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "units",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Unit codes used by the specs. Codes are UCUM; labels are what people usually write. Hectare is 'har' in UCUM ('ha' would be a hecto-annum).",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "external_basis": [
+    "ucum"
+  ],
+  "values": [
+    {
+      "code": "g",
+      "label": "g",
+      "definition": "gram"
+    },
+    {
+      "code": "kg",
+      "label": "kg",
+      "definition": "kilogram"
+    },
+    {
+      "code": "mL",
+      "label": "mL",
+      "definition": "millilitre",
+      "synonyms": [
+        "ml"
+      ]
+    },
+    {
+      "code": "L",
+      "label": "L",
+      "definition": "litre",
+      "synonyms": [
+        "l",
+        "litres"
+      ]
+    },
+    {
+      "code": "har",
+      "label": "ha",
+      "definition": "hectare",
+      "synonyms": [
+        "ha",
+        "hectare"
+      ]
+    },
+    {
+      "code": "[acr_us]",
+      "label": "ac",
+      "definition": "acre (UCUM US survey acre, 4046.873 m2; differs from the international acre by less than 0.001%)",
+      "synonyms": [
+        "ac",
+        "acre",
+        "acres"
+      ]
+    },
+    {
+      "code": "m",
+      "label": "m",
+      "definition": "metre"
+    },
+    {
+      "code": "km",
+      "label": "km",
+      "definition": "kilometre"
+    },
+    {
+      "code": "m2",
+      "label": "m2",
+      "definition": "square metre"
+    },
+    {
+      "code": "g/L",
+      "label": "g/L",
+      "definition": "grams per litre (product concentration)"
+    },
+    {
+      "code": "g/kg",
+      "label": "g/kg",
+      "definition": "grams per kilogram (product concentration)"
+    },
+    {
+      "code": "km/h",
+      "label": "km/h",
+      "definition": "kilometres per hour"
+    },
+    {
+      "code": "m/s",
+      "label": "m/s",
+      "definition": "metres per second"
+    },
+    {
+      "code": "[kn_i]",
+      "label": "knots",
+      "definition": "international knot",
+      "synonyms": [
+        "kn",
+        "kt",
+        "knots"
+      ]
+    },
+    {
+      "code": "Cel",
+      "label": "degrees C",
+      "definition": "degree Celsius",
+      "synonyms": [
+        "C",
+        "degC"
+      ]
+    },
+    {
+      "code": "%",
+      "label": "%",
+      "definition": "percent (relative humidity)"
+    },
+    {
+      "code": "mm",
+      "label": "mm",
+      "definition": "millimetre (precipitation)"
+    },
+    {
+      "code": "d",
+      "label": "days",
+      "definition": "day (restriction periods)"
+    },
+    {
+      "code": "h",
+      "label": "hours",
+      "definition": "hour (restriction periods)"
+    }
+  ]
+}

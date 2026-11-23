@@ -1,0 +1,79 @@
+{
+  "id": "compass-points",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "16-point compass directions (direction the wind blows from).",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "N",
+      "label": "N"
+    },
+    {
+      "code": "NNE",
+      "label": "NNE"
+    },
+    {
+      "code": "NE",
+      "label": "NE"
+    },
+    {
+      "code": "ENE",
+      "label": "ENE"
+    },
+    {
+      "code": "E",
+      "label": "E"
+    },
+    {
+      "code": "ESE",
+      "label": "ESE"
+    },
+    {
+      "code": "SE",
+      "label": "SE"
+    },
+    {
+      "code": "SSE",
+      "label": "SSE"
+    },
+    {
+      "code": "S",
+      "label": "S"
+    },
+    {
+      "code": "SSW",
+      "label": "SSW"
+    },
+    {
+      "code": "SW",
+      "label": "SW"
+    },
+    {
+      "code": "WSW",
+      "label": "WSW"
+    },
+    {
+      "code": "W",
+      "label": "W"
+    },
+    {
+      "code": "WNW",
+      "label": "WNW"
+    },
+    {
+      "code": "NW",
+      "label": "NW"
+    },
+    {
+      "code": "NNW",
+      "label": "NNW"
+    }
+  ]
+}

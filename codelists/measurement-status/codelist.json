@@ -1,0 +1,35 @@
+{
+  "id": "measurement-status",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Whether a value was measured, estimated, forecast or planned.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "measured",
+      "label": "Measured"
+    },
+    {
+      "code": "estimated",
+      "label": "Estimated"
+    },
+    {
+      "code": "forecast",
+      "label": "Forecast"
+    },
+    {
+      "code": "planned",
+      "label": "Planned"
+    },
+    {
+      "code": "unknown",
+      "label": "Unknown"
+    }
+  ]
+}

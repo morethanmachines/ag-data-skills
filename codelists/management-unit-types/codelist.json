@@ -1,0 +1,47 @@
+{
+  "id": "management-unit-types",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Kinds of management unit. Industries name the unit their profile uses.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "vineyard_block",
+      "label": "Vineyard block"
+    },
+    {
+      "code": "paddock",
+      "label": "Paddock"
+    },
+    {
+      "code": "field",
+      "label": "Field"
+    },
+    {
+      "code": "orchard_block",
+      "label": "Orchard block"
+    },
+    {
+      "code": "bay",
+      "label": "Bay"
+    },
+    {
+      "code": "shed",
+      "label": "Shed"
+    },
+    {
+      "code": "glasshouse",
+      "label": "Glasshouse"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

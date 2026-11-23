@@ -1,0 +1,37 @@
+{
+  "id": "season-schemes",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "How seasons are counted.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "calendar_year",
+      "label": "Calendar year"
+    },
+    {
+      "code": "financial_year",
+      "label": "Financial year (July to June)"
+    },
+    {
+      "code": "vintage",
+      "label": "Vintage",
+      "definition": "Wine grape vintage, labelled by the harvest year."
+    },
+    {
+      "code": "crop_year",
+      "label": "Crop year",
+      "definition": "Labelled by harvest year."
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

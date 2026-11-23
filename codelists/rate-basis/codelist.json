@@ -1,0 +1,40 @@
+{
+  "id": "rate-basis",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "What an application rate is per. Each value fixes its denominator.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "per_hectare",
+      "label": "per hectare",
+      "definition": "Amount per hectare of area treated."
+    },
+    {
+      "code": "per_100L_dilute",
+      "label": "per 100 L, dilute",
+      "definition": "Amount per 100 L of spray at the label (dilute) rate. Tank rate = dilute rate x concentration factor."
+    },
+    {
+      "code": "per_100L_tank",
+      "label": "per 100 L, tank",
+      "definition": "Amount per 100 L of the mix actually in the tank (already includes any concentration factor)."
+    },
+    {
+      "code": "per_plant",
+      "label": "per plant",
+      "definition": "Amount per plant or vine."
+    },
+    {
+      "code": "per_100m_row",
+      "label": "per 100 m of row",
+      "definition": "Amount per 100 m of row length."
+    }
+  ]
+}
