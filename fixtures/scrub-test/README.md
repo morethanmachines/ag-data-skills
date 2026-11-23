@@ -1,0 +1,1 @@
+Synthetic test of the privacy check. This file deliberately contains a checksum-valid ABN (the worked example published by the Australian Business Register), so the scrub workflow must close this pull request.
