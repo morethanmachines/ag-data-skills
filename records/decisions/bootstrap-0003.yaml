@@ -4,7 +4,7 @@ type: spec_new
 outcome: merged
 bootstrap: true
 pr: null
-commit: null
+commit: c9b7333291db1ef0e6f87ec978fe668785b2276d
 summary: "Seed the viticulture vineyard block 0.1.0 draft: block id, names by party with validity dates (for renames), aliases by scheme, variety, rows, area, region and optional GeoJSON geometry."
 contributor:
   organisation: morethanmachines

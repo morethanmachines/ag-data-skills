@@ -4,7 +4,7 @@ type: profile_change
 outcome: merged
 bootstrap: true
 pr: null
-commit: null
+commit: c9b7333291db1ef0e6f87ec978fe668785b2276d
 summary: "Seed the viticulture profile of the shared spray diary: vineyard blocks as management units, E-L crop stages, vintage seasons, E-L stage restrictions."
 contributor:
   organisation: morethanmachines

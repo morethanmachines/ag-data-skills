@@ -4,7 +4,7 @@ type: codelist_change
 outcome: merged
 bootstrap: true
 pr: null
-commit: null
+commit: fef95293401d0e997ed4eb8b78ee316847200d65
 summary: "Seed shared code lists: units (UCUM), rate basis, product types, application methods, restriction types and sources, crop stage scales, measurement status, party roles, management unit types, record status, season schemes, compass points. The grapevine variety list and E-L stage descriptions are held back pending licence confirmation."
 contributor:
   organisation: morethanmachines
