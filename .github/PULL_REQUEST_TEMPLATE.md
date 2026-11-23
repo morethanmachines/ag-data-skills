@@ -21,6 +21,6 @@ cp-contribution:
 
 ## Checks run locally
 
-- [ ] `go run ./ci checks`
-- [ ] `go run ./ci scrub`
+- [ ] `go -C ci run . checks`
+- [ ] `go -C ci run . scrub`
 - [ ] Searched everything in this PR for values from the user's real files

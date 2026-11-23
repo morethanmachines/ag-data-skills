@@ -1,0 +1,59 @@
+{
+  "scope": "industry",
+  "name": "viticulture",
+  "entries": [
+    {
+      "kind": "spec",
+      "id": "viticulture/vineyard-block",
+      "description": "A vineyard block: the management unit viticulture spray, harvest and contract records refer to.",
+      "keywords": [
+        "aliases",
+        "area",
+        "block_id",
+        "blocks",
+        "business",
+        "code_scheme",
+        "coordinates",
+        "count",
+        "first",
+        "geometry",
+        "last",
+        "names",
+        "party",
+        "region",
+        "rootstock",
+        "rows",
+        "used_by",
+        "valid_from",
+        "valid_to",
+        "variety"
+      ],
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "industries/viticulture/specs/vineyard-block/schema.json"
+    },
+    {
+      "kind": "profile",
+      "id": "viticulture/spray-diary",
+      "description": "How viticulture uses the shared spray diary: management units are vineyard blocks, crop stage uses the modified E-L scale, every record carries a vintage, and stage-based restrictions use E-L stages.",
+      "keywords": [
+        "crop_stage",
+        "management_units",
+        "products_applied",
+        "profile",
+        "records",
+        "restrictions",
+        "scale",
+        "season",
+        "stage",
+        "unit_type",
+        "year"
+      ],
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "industries/viticulture/profiles/spray-diary.json",
+      "profile_of": "shared/spray-diary"
+    }
+  ],
+  "fingerprints": null
+}

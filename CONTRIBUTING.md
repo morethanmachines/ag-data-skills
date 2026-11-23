@@ -60,7 +60,7 @@ validates against it.
 - **Fingerprints** (`fingerprint.json`) describe a source shape with no data values. The
   fingerprint id is `fp-` followed by the first 12 hex characters of the SHA-256 of the
   sorted, newline-joined normalised names of the required columns. `ci` computes it:
-  `go run ./ci fingerprint-id path/to/fingerprint.json`.
+  `go -C ci run . fingerprint-id path/to/fingerprint.json`.
 - **Crosswalks** (`crosswalk.yaml`) are declarative instructions, not code. They MUST be
   specific enough that two different agents following them produce the same output, and
   they ship with a synthetic input fixture and its expected mapped output. Every required
@@ -79,8 +79,8 @@ Use the template in `.github/PULL_REQUEST_TEMPLATE.md`. The body MUST contain a 
 `cp-contribution` manifest. Before pushing, run the same checks locally:
 
 ```
-go run ./ci checks --base origin/main
-go run ./ci scrub --base origin/main
+go -C ci run . checks --base origin/main --body-file pr-body.md
+go -C ci run . scrub --base origin/main
 ```
 
 ## Reviews

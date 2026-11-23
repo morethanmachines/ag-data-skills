@@ -53,8 +53,11 @@ rate_limits:
 privacy:
   # Synthetic data rules, fictional names and the designated offshore test areas.
   synthetic_rules: governance/synthetic.yaml
-  # Paths the scrub check skips. Adding a path is a governance_change.
-  scrub_exempt_paths: []
+  # Paths the scrub check skips. Adding a path is a governance_change. The scrub unit tests
+  # contain deliberate real-looking identifiers to prove they are rejected.
+  scrub_exempt_paths:
+    - ci/internal/scrub/scrub_test.go
+  deny_list: governance/scrub-denylist.yaml
 
 snapshot:
   max_bytes: 4000000

@@ -1,0 +1,14 @@
+# Strings that mark real farm or personal data. The scrub check rejects any data file
+# (CSV, JSON, YAML, xlsx and similar, outside governance/) that contains one, ignoring case.
+# Adding or removing a marker is a governance_change.
+markers:
+  - Pty Ltd
+  - Pty. Ltd.
+  - Tax File Number
+  - "TFN:"
+  - "BSB:"
+  - Medicare
+  - Date of birth
+  - "DOB:"
+  - Driver licence
+  - Chemcert

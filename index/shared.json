@@ -1,0 +1,145 @@
+{
+  "scope": "shared",
+  "name": "Shared",
+  "entries": [
+    {
+      "kind": "spec",
+      "id": "shared/spray-diary",
+      "description": "Industry-neutral record of agrochemical applications: when, where (management units, by reference), what (products, rates, quantities), how (method, carrier), restrictions (withholding periods, re-entry intervals) and conditions (weather).",
+      "keywords": [
+        "active_constituents",
+        "application",
+        "applied_by",
+        "applies_to",
+        "area_total",
+        "area_treated",
+        "attribute",
+        "author_role",
+        "business",
+        "carrier",
+        "concentration",
+        "concentration_factor",
+        "conditions",
+        "created",
+        "crop",
+        "crop_stage",
+        "crosswalk",
+        "delta_t",
+        "disposition",
+        "end",
+        "equipment",
+        "evidence",
+        "fields",
+        "fingerprint_id"
+      ],
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "shared/specs/spray-diary/schema.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/application-methods",
+      "description": "Application methods.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/application-methods/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/compass-points",
+      "description": "16-point compass directions (direction the wind blows from).",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/compass-points/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/crop-stage-scales",
+      "description": "Growth stage scales.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/crop-stage-scales/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/management-unit-types",
+      "description": "Kinds of management unit.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/management-unit-types/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/measurement-status",
+      "description": "Whether a value was measured, estimated, forecast or planned.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/measurement-status/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/party-roles",
+      "description": "Roles of parties in an application record.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/party-roles/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/product-types",
+      "description": "Minimal starting list of product types.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/product-types/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/rate-basis",
+      "description": "What an application rate is per.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/rate-basis/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/record-status",
+      "description": "Status of an application record.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/record-status/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/restriction-sources",
+      "description": "Where a restriction comes from.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/restriction-sources/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/restriction-types",
+      "description": "Kinds of use restriction attached to a product application.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/restriction-types/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/season-schemes",
+      "description": "How seasons are counted.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/season-schemes/codelist.json"
+    },
+    {
+      "kind": "codelist",
+      "id": "codelists/units",
+      "description": "Unit codes used by the specs.",
+      "status": "draft",
+      "version": "0.1.0",
+      "path": "codelists/units/codelist.json"
+    }
+  ],
+  "fingerprints": null
+}
