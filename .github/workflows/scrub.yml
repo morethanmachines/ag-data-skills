@@ -62,7 +62,7 @@ jobs:
             echo "The privacy check found what looks like real farm or personal data, so this pull request has been closed automatically and its branch deleted. Values are masked below."
             echo
             echo '```'
-            head -n 50 "$RUNNER_TEMP/scrub.txt"
+            grep -v "^::" "$RUNNER_TEMP/scrub.txt" | head -n 50
             echo '```'
             echo
             echo "Contributions must contain structure and synthetic data only (governance/synthetic.yaml): ABNs and ACNs that fail their checksums, fictional names, coordinates inside a designated offshore test area. Remove the data, then open a new pull request from a fresh branch."
