@@ -1,0 +1,154 @@
+{
+  "export": "SprayJob job history",
+  "contractor": "Synthetic Aerial & Ground",
+  "generated": "2025-12-01T09:00:00+08:00",
+  "units_note": "areas in acres",
+  "jobs": [
+    {
+      "job_no": "J-1042",
+      "date": "22/04/2025",
+      "start": "07:30",
+      "finish": "13:30",
+      "method": "GROUND",
+      "client": "Synthetic Plains",
+      "paddocks": [
+        {
+          "code": "SP-01",
+          "area_ac": 296.5
+        },
+        {
+          "code": "SP-02",
+          "area_ac": 210.0
+        },
+        {
+          "code": "SP-03",
+          "area_ac": 158.1
+        },
+        {
+          "code": "SP-04",
+          "area_ac": 227.3
+        }
+      ],
+      "mix": [
+        {
+          "product": "Glypho 540",
+          "total": 541.5,
+          "unit": "L"
+        },
+        {
+          "product": "Wetter",
+          "total": 72.2,
+          "unit": "L"
+        }
+      ],
+      "water_total": 28880,
+      "conditions": {
+        "wind": 12,
+        "dir": "E",
+        "temp": 18,
+        "rh": 55,
+        "dt": 4.0
+      },
+      "operator": "R. Placeholder"
+    },
+    {
+      "job_no": "J-1049",
+      "date": "12/08/2025",
+      "start": "06:10",
+      "finish": "06:50",
+      "method": "AERIAL",
+      "client": "Synthetic Plains",
+      "paddocks": [
+        {
+          "code": "SP-03",
+          "area_ac": 158.1
+        }
+      ],
+      "mix": [
+        {
+          "product": "Alpha Cyper 100",
+          "total": 12.8,
+          "unit": "L"
+        }
+      ],
+      "water_total": 1920,
+      "conditions": {
+        "wind": 5.9,
+        "dir": "N",
+        "temp": 12,
+        "rh": 75,
+        "dt": 2.0
+      },
+      "operator": "Pilot T. Example"
+    },
+    {
+      "job_no": "J-1056",
+      "date": "20/08/2025",
+      "start": "09:00",
+      "finish": "14:00",
+      "method": "GROUND",
+      "client": "Synthetic Plains",
+      "paddocks": [
+        {
+          "code": "SP-01",
+          "area_ac": 296.5
+        },
+        {
+          "code": "SP-02",
+          "area_ac": 210.0
+        }
+      ],
+      "mix": [
+        {
+          "product": "Tebucon 430",
+          "total": 59.45,
+          "unit": "L"
+        },
+        {
+          "product": "Wetter",
+          "total": 20.5,
+          "unit": "L"
+        }
+      ],
+      "water_total": 16400,
+      "conditions": {
+        "wind": 13,
+        "dir": "NW",
+        "temp": 16,
+        "rh": 58,
+        "dt": 4.5
+      },
+      "operator": "R. Placeholder"
+    },
+    {
+      "job_no": "J-1063",
+      "date": "25/10/2025",
+      "start": "07:00",
+      "finish": "08:50",
+      "method": "GROUND",
+      "client": "Synthetic Plains",
+      "paddocks": [
+        {
+          "code": "SP-04",
+          "area_ac": 227.3
+        }
+      ],
+      "mix": [
+        {
+          "product": "Glypho 540",
+          "total": 110.4,
+          "unit": "L"
+        }
+      ],
+      "water_total": 5520,
+      "conditions": {
+        "wind": 9,
+        "dir": "SE",
+        "temp": 22,
+        "rh": 48,
+        "dt": 6.5
+      },
+      "operator": "R. Placeholder"
+    }
+  ]
+}

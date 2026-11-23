@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.tgz
+/private/
+/docs/KICKOFF_PROMPT.md
+/dist/
+/ci/bin/

@@ -1,0 +1,22 @@
+Job ID,Date,Time,Paddock,Crop,Area Sprayed (ha),Product,Reg No,Rate,Rate Unit,Water (L/ha),Method,Crop Stage,Delta T,Wind (km/h),Wind Dir,Temp (C),RH (%),Applied By,Comments
+GRN-2025-001,2025-04-22,07:30,Top Paddock,Wheat,120,Synth Glypho 540,SYN-91001,1.5,L/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Top Paddock,Wheat,120,Synth Wetter 1000,SYN-91007,200,mL/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Creek,Barley,85,Synth Glypho 540,SYN-91001,1.5,L/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Creek,Barley,85,Synth Wetter 1000,SYN-91007,200,mL/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Bore,Canola,64,Synth Glypho 540,SYN-91001,1.5,L/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Bore,Canola,64,Synth Wetter 1000,SYN-91007,200,mL/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Long,Lentils,92,Synth Glypho 540,SYN-91001,1.5,L/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-001,2025-04-22,07:30,Long,Lentils,92,Synth Wetter 1000,SYN-91007,200,mL/ha,80,ground boom,,4,12,E,18,55,Synthetic Aerial & Ground,Knockdown before sowing
+GRN-2025-002,2025-05-14,08:00,Top Paddock,Wheat,120,Synth Trifluralin 480,SYN-91002,1.5,L/ha,70,ground boom,pre-sowing,3.5,8,SE,16,62,Jo Fictional,"IBS, incorporated by sowing"
+GRN-2025-002,2025-05-14,08:00,Creek,Barley,85,Synth Trifluralin 480,SYN-91002,1.5,L/ha,70,ground boom,pre-sowing,3.5,8,SE,16,62,Jo Fictional,"IBS, incorporated by sowing"
+GRN-2025-003,2025-05-15,08:15,Top Paddock,Wheat,120,Synth Pyroxa 850 WG,SYN-91003,100,g/ha,70,ground boom,pre-sowing,3.8,9,SE,17,60,Jo Fictional,
+GRN-2025-004,2025-07-08,10:00,Top Paddock,Wheat,120,Synth MCPA 750,SYN-91004,1,L/ha,60,ground boom,Z23,2.5,10,W,14,70,Jo Fictional,
+GRN-2025-005,2025-07-09,10:30,Creek,Barley,12,Synth MCPA 750,SYN-91004,1,L/ha,60,ground boom,Z22,2.8,7,W,15,68,Jo Fictional,"Spot spray, wild radish patch near creek"
+GRN-2025-006,2025-08-12,06:10,Bore,Canola,64,Synth Alpha-Cyper 100,SYN-91006,200,mL/ha,30,aerial,BBCH 55,2,11,N,12,75,Synthetic Aerial & Ground,Aphids
+GRN-2025-007,2025-08-20,09:00,Top Paddock,Wheat,120,Synth Tebucon 430,SYN-91005,290,mL/ha,80,ground boom,Z31,4.5,13,NW,16,58,Synthetic Aerial & Ground,
+GRN-2025-007,2025-08-20,09:00,Top Paddock,Wheat,120,Synth Wetter 1000,SYN-91007,100,mL/ha,80,ground boom,Z31,4.5,13,NW,16,58,Synthetic Aerial & Ground,
+GRN-2025-007,2025-08-20,09:00,Creek,Barley,85,Synth Tebucon 430,SYN-91005,290,mL/ha,80,ground boom,Z31,4.5,13,NW,16,58,Synthetic Aerial & Ground,
+GRN-2025-007,2025-08-20,09:00,Creek,Barley,85,Synth Wetter 1000,SYN-91007,100,mL/ha,80,ground boom,Z31,4.5,13,NW,16,58,Synthetic Aerial & Ground,
+GRN-2025-008,2025-09-18,09:30,Top Paddock,Wheat,120,Synth Tebucon 430,SYN-91005,290,mL/ha,80,ground boom,Z39,6,14,NW,21,50,Jo Fictional,"Flag leaf, stripe rust"
+GRN-2025-009,2025-10-10,08:45,Creek,Barley,85,Synth Tebucon 430,SYN-91005,290,mL/ha,80,ground boom,Z59,7.5,15,S,24,45,Jo Fictional,Late net blotch
+GRN-2025-010,2025-10-25,07:00,Long,Lentils,92,Synth Glypho 540,SYN-91001,1.2,L/ha,60,ground boom,desiccation,6.5,9,SE,22,48,Synthetic Aerial & Ground,Crop desiccation before harvest

@@ -1,0 +1,151 @@
+{
+  "type": "FeatureCollection",
+  "name": "Synthetic Plains paddocks",
+  "synthetic": true,
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.9,
+              -28.8
+            ],
+            [
+              113.915,
+              -28.8
+            ],
+            [
+              113.915,
+              -28.810000000000002
+            ],
+            [
+              113.9,
+              -28.810000000000002
+            ],
+            [
+              113.9,
+              -28.8
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "paddock_name": "Top Paddock",
+        "contractor_code": "SP-01",
+        "area_ha": 120.0,
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.92,
+              -28.8
+            ],
+            [
+              113.935,
+              -28.8
+            ],
+            [
+              113.935,
+              -28.810000000000002
+            ],
+            [
+              113.92,
+              -28.810000000000002
+            ],
+            [
+              113.92,
+              -28.8
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "paddock_name": "Creek",
+        "contractor_code": "SP-02",
+        "area_ha": 85.0,
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.94000000000001,
+              -28.8
+            ],
+            [
+              113.95500000000001,
+              -28.8
+            ],
+            [
+              113.95500000000001,
+              -28.810000000000002
+            ],
+            [
+              113.94000000000001,
+              -28.810000000000002
+            ],
+            [
+              113.94000000000001,
+              -28.8
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "paddock_name": "Bore",
+        "contractor_code": "SP-03",
+        "area_ha": 64.0,
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.96000000000001,
+              -28.8
+            ],
+            [
+              113.97500000000001,
+              -28.8
+            ],
+            [
+              113.97500000000001,
+              -28.810000000000002
+            ],
+            [
+              113.96000000000001,
+              -28.810000000000002
+            ],
+            [
+              113.96000000000001,
+              -28.8
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "paddock_name": "Long",
+        "contractor_code": "SP-04",
+        "area_ha": 92.0,
+        "synthetic": true
+      }
+    }
+  ]
+}

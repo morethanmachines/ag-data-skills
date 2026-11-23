@@ -1,0 +1,86 @@
+Record,Date,Start,Finish,Block,Variety,Area (ha),Product,APVMA No.,Rate /100L,Unit,Water Rate (L/ha),EL Stage,Wind (km/h),Wind Dir,Temp (°C),RH (%),Operator,Notes
+APP-2026-001,16/09/2025,06:30,09:00,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,400,g,300,7,8,SE,11,72,Alex Example,Early season powdery
+APP-2026-001,16/09/2025,06:30,09:00,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,400,g,300,7,8,SE,11,72,Alex Example,Early season powdery
+APP-2026-001,16/09/2025,06:30,09:00,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,400,g,300,7,8,SE,11,72,Alex Example,Early season powdery
+APP-2026-001,16/09/2025,06:30,09:00,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,400,g,300,7,8,SE,11,72,Alex Example,Early season powdery
+APP-2026-002,30/09/2025,07:00,09:40,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,400,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Top Shiraz,Shiraz,2.4,Synth Copper 500 WG,SYN-90002,140,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,400,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Creek Chardy,Chardonnay,3.1,Synth Copper 500 WG,SYN-90002,140,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,400,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Shed Cab,Cabernet Sauvignon,1.8,Synth Copper 500 WG,SYN-90002,140,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,400,g,300,9,10,S,13,68,Alex Example,
+APP-2026-002,30/09/2025,07:00,09:40,Back Pinot,Pinot Noir,1.5,Synth Copper 500 WG,SYN-90002,140,g,300,9,10,S,13,68,Alex Example,
+APP-2026-003,14/10/2025,06:45,09:35,Top Shiraz,Shiraz,2.4,Synth Mancozeb 750 WG,SYN-90003,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Creek Chardy,Chardonnay,3.1,Synth Mancozeb 750 WG,SYN-90003,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Shed Cab,Cabernet Sauvignon,1.8,Synth Mancozeb 750 WG,SYN-90003,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Back Pinot,Pinot Noir,1.5,Synth Mancozeb 750 WG,SYN-90003,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-003,14/10/2025,06:45,09:35,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,400,g,400,12,6,SW,15,64,Sam Placeholder,
+APP-2026-004,22/10/2025,09:00,10:30,Creek Chardy,Chardonnay,3.1,Synth Glypho 450,SYN-90007,2000,mL,100,12,5,W,17,55,Sam Placeholder,Undervine
+APP-2026-004,22/10/2025,09:00,10:30,Creek Chardy,Chardonnay,3.1,Synth Wetter 1000,SYN-90006,200,mL,100,12,5,W,17,55,Sam Placeholder,Undervine
+APP-2026-004,22/10/2025,09:00,10:30,Back Pinot,Pinot Noir,1.5,Synth Glypho 450,SYN-90007,2000,mL,100,12,5,W,17,55,Sam Placeholder,Undervine
+APP-2026-004,22/10/2025,09:00,10:30,Back Pinot,Pinot Noir,1.5,Synth Wetter 1000,SYN-90006,200,mL,100,12,5,W,17,55,Sam Placeholder,Undervine
+APP-2026-005,28/10/2025,06:30,09:30,Top Shiraz,Shiraz,2.4,Synth Myclo 200 EW,SYN-90004,30,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Top Shiraz,Shiraz,2.4,Synth Wetter 1000,SYN-90006,40,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Creek Chardy,Chardonnay,3.1,Synth Myclo 200 EW,SYN-90004,30,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Creek Chardy,Chardonnay,3.1,Synth Wetter 1000,SYN-90006,40,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Shed Cab,Cabernet Sauvignon,1.8,Synth Myclo 200 EW,SYN-90004,30,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Shed Cab,Cabernet Sauvignon,1.8,Synth Wetter 1000,SYN-90006,40,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Back Pinot,Pinot Noir,1.5,Synth Myclo 200 EW,SYN-90004,30,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-005,28/10/2025,06:30,09:30,Back Pinot,Pinot Noir,1.5,Synth Wetter 1000,SYN-90006,40,mL,400,15,9,SE,14,70,Alex Example,
+APP-2026-006,11/11/2025,06:15,09:25,Top Shiraz,Shiraz,2.4,Synth Mancozeb 750 WG,SYN-90003,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Creek Chardy,Chardonnay,3.1,Synth Mancozeb 750 WG,SYN-90003,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Shed Cab,Cabernet Sauvignon,1.8,Synth Mancozeb 750 WG,SYN-90003,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Back Pinot,Pinot Noir,1.5,Synth Mancozeb 750 WG,SYN-90003,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-006,11/11/2025,06:15,09:25,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,400,g,500,17,7,E,18,60,Alex Example,Rain forecast
+APP-2026-007,25/11/2025,05:50,09:10,Top Shiraz,Shiraz,2.4,Synth Phos 600,SYN-90005,500,mL,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,300,g,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Creek Chardy,Chardonnay,3.1,Synth Phos 600,SYN-90005,500,mL,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,300,g,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Shed Cab,Cabernet Sauvignon,1.8,Synth Phos 600,SYN-90005,500,mL,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,300,g,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Back Pinot,Pinot Noir,1.5,Synth Phos 600,SYN-90005,500,mL,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-007,25/11/2025,05:50,09:10,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,300,g,500,19,11,SE,20,58,Sam Placeholder,
+APP-2026-008,09/12/2025,06:00,09:30,Top Shiraz,Shiraz,2.4,Synth Myclo 200 EW,SYN-90004,45,mL,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,450,g,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Creek Chardy,Chardonnay,3.1,Synth Myclo 200 EW,SYN-90004,45,mL,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,450,g,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Shed Cab,Cabernet Sauvignon,1.8,Synth Myclo 200 EW,SYN-90004,45,mL,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,450,g,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Back Pinot,Pinot Noir,1.5,Synth Myclo 200 EW,SYN-90004,45,mL,600,23,8,S,22,52,Alex Example,
+APP-2026-008,09/12/2025,06:00,09:30,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,450,g,600,23,8,S,22,52,Alex Example,
+APP-2026-009,23/12/2025,05:45,09:15,Top Shiraz,Shiraz,2.4,Synth Mancozeb 750 WG,SYN-90003,600,g,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Top Shiraz,Shiraz,2.4,Synth Wetter 1000,SYN-90006,60,mL,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Creek Chardy,Chardonnay,3.1,Synth Mancozeb 750 WG,SYN-90003,600,g,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Creek Chardy,Chardonnay,3.1,Synth Wetter 1000,SYN-90006,60,mL,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Shed Cab,Cabernet Sauvignon,1.8,Synth Mancozeb 750 WG,SYN-90003,600,g,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Shed Cab,Cabernet Sauvignon,1.8,Synth Wetter 1000,SYN-90006,60,mL,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Back Pinot,Pinot Noir,1.5,Synth Mancozeb 750 WG,SYN-90003,600,g,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-009,23/12/2025,05:45,09:15,Back Pinot,Pinot Noir,1.5,Synth Wetter 1000,SYN-90006,60,mL,600,27,12,SW,24,49,Sam Placeholder,
+APP-2026-010,05/01/2026,05:40,09:00,Top Shiraz,Shiraz,2.4,Synth Copper 500 WG,SYN-90002,210,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Top Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,450,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Creek Chardy,Chardonnay,3.1,Synth Copper 500 WG,SYN-90002,210,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Creek Chardy,Chardonnay,3.1,Synth Sulfur 800 WG,SYN-90001,450,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Shed Cab,Cabernet Sauvignon,1.8,Synth Copper 500 WG,SYN-90002,210,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,450,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Back Pinot,Pinot Noir,1.5,Synth Copper 500 WG,SYN-90002,210,g,700,29,6,E,26,45,Alex Example,
+APP-2026-010,05/01/2026,05:40,09:00,Back Pinot,Pinot Noir,1.5,Synth Sulfur 800 WG,SYN-90001,450,g,700,29,6,E,26,45,Alex Example,
+APP-2026-011,15/01/2026,09:30,10:50,Hill Shiraz,Shiraz,2.4,Synth Glypho 450,SYN-90007,1500,mL,100,29,4,N,27,40,Sam Placeholder,Undervine
+APP-2026-011,15/01/2026,09:30,10:50,Shed Cab,Cabernet Sauvignon,1.8,Synth Glypho 450,SYN-90007,1500,mL,100,29,4,N,27,40,Sam Placeholder,Undervine
+APP-2026-012,20/01/2026,05:30,08:40,Hill Shiraz,Shiraz,2.4,Synth Phos 600,SYN-90005,750,mL,700,31,9,SE,25,50,Sam Placeholder,
+APP-2026-012,20/01/2026,05:30,08:40,Creek Chardy,Chardonnay,3.1,Synth Phos 600,SYN-90005,750,mL,700,31,9,SE,25,50,Sam Placeholder,
+APP-2026-012,20/01/2026,05:30,08:40,Shed Cab,Cabernet Sauvignon,1.8,Synth Phos 600,SYN-90005,750,mL,700,31,9,SE,25,50,Sam Placeholder,
+APP-2026-013,03/02/2026,05:30,08:00,Hill Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,450,g,700,33,7,S,28,42,Alex Example,
+APP-2026-013,03/02/2026,05:30,08:00,Hill Shiraz,Shiraz,2.4,Synth Copper 500 WG,SYN-90002,210,g,700,33,7,S,28,42,Alex Example,
+APP-2026-013,03/02/2026,05:30,08:00,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,450,g,700,33,7,S,28,42,Alex Example,
+APP-2026-013,03/02/2026,05:30,08:00,Shed Cab,Cabernet Sauvignon,1.8,Synth Copper 500 WG,SYN-90002,210,g,700,33,7,S,28,42,Alex Example,
+APP-2026-014,10/02/2026,05:20,07:00,Creek Chardy,Chardonnay,3.1,Synth Myclo 200 EW,SYN-90004,45,mL,700,35,10,SE,29,38,Alex Example,"Botrytis pressure, close to pick"
+APP-2026-015,17/02/2026,05:30,07:30,Hill Shiraz,Shiraz,2.4,Synth Sulfur 800 WG,SYN-90001,450,g,700,35,8,SW,30,36,Sam Placeholder,
+APP-2026-015,17/02/2026,05:30,07:30,Shed Cab,Cabernet Sauvignon,1.8,Synth Sulfur 800 WG,SYN-90001,450,g,700,35,8,SW,30,36,Sam Placeholder,
+APP-2026-016,01/03/2026,05:45,07:35,Hill Shiraz,Shiraz,2.4,Synth Phos 600,SYN-90005,750,mL,700,36,13,S,27,44,Sam Placeholder,Downy after storm

@@ -1,0 +1,244 @@
+{
+  "type": "FeatureCollection",
+  "name": "Synthetic Ridge Vineyard blocks",
+  "synthetic": true,
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.2,
+              -35.0
+            ],
+            [
+              138.20299999999997,
+              -35.0
+            ],
+            [
+              138.20299999999997,
+              -35.002
+            ],
+            [
+              138.2,
+              -35.002
+            ],
+            [
+              138.2,
+              -35.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "37820265fa6f31d807c7e13056bd4214",
+        "created": "2025-07-01T00:00:00Z",
+        "last_modified": "2026-01-10T00:00:00Z",
+        "history": [],
+        "vineyard_abn": [
+          "51 000 000 000"
+        ],
+        "block_name": [
+          "Hill Shiraz",
+          "Top Shiraz",
+          "WC-101"
+        ],
+        "grapevine_variety": "Shiraz",
+        "grapevine_variety_code": "SHZ",
+        "GI_region": 0,
+        "contract_id": "SYN-CONTRACT-WC-101",
+        "starting_row_number": 1,
+        "rows_in_block": 48,
+        "area_ha": 2.4,
+        "vendor_data": [
+          {
+            "id": "com.example.grapelog",
+            "key": "block",
+            "value": "WC-101",
+            "last-modified": "2025-07-01T00:00:00Z"
+          }
+        ],
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.20399999999998,
+              -35.0
+            ],
+            [
+              138.20699999999997,
+              -35.0
+            ],
+            [
+              138.20699999999997,
+              -35.002
+            ],
+            [
+              138.20399999999998,
+              -35.002
+            ],
+            [
+              138.20399999999998,
+              -35.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "f725711df54ede25eb9fffb4b3a3534e",
+        "created": "2025-07-01T00:00:00Z",
+        "last_modified": "2025-07-01T00:00:00Z",
+        "history": [],
+        "vineyard_abn": [
+          "51 000 000 000"
+        ],
+        "block_name": [
+          "Creek Chardy",
+          "WC-102"
+        ],
+        "grapevine_variety": "Chardonnay",
+        "grapevine_variety_code": "CHA",
+        "GI_region": 0,
+        "contract_id": "SYN-CONTRACT-WC-102",
+        "starting_row_number": 49,
+        "rows_in_block": 62,
+        "area_ha": 3.1,
+        "vendor_data": [
+          {
+            "id": "com.example.grapelog",
+            "key": "block",
+            "value": "WC-102",
+            "last-modified": "2025-07-01T00:00:00Z"
+          }
+        ],
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.208,
+              -35.0
+            ],
+            [
+              138.21099999999998,
+              -35.0
+            ],
+            [
+              138.21099999999998,
+              -35.002
+            ],
+            [
+              138.208,
+              -35.002
+            ],
+            [
+              138.208,
+              -35.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3f64b06fd2784212d7a84f7b8898ed0c",
+        "created": "2025-07-01T00:00:00Z",
+        "last_modified": "2025-07-01T00:00:00Z",
+        "history": [],
+        "vineyard_abn": [
+          "51 000 000 000"
+        ],
+        "block_name": [
+          "Shed Cab",
+          "WC-103"
+        ],
+        "grapevine_variety": "Cabernet Sauvignon",
+        "grapevine_variety_code": "CSA",
+        "GI_region": 0,
+        "contract_id": "SYN-CONTRACT-WC-103",
+        "starting_row_number": 111,
+        "rows_in_block": 36,
+        "area_ha": 1.8,
+        "vendor_data": [
+          {
+            "id": "com.example.grapelog",
+            "key": "block",
+            "value": "WC-103",
+            "last-modified": "2025-07-01T00:00:00Z"
+          }
+        ],
+        "synthetic": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.212,
+              -35.0
+            ],
+            [
+              138.21499999999997,
+              -35.0
+            ],
+            [
+              138.21499999999997,
+              -35.002
+            ],
+            [
+              138.212,
+              -35.002
+            ],
+            [
+              138.212,
+              -35.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "57803939e2b8261bff0962550f4bd9ce",
+        "created": "2025-07-01T00:00:00Z",
+        "last_modified": "2025-07-01T00:00:00Z",
+        "history": [],
+        "vineyard_abn": [
+          "51 000 000 000"
+        ],
+        "block_name": [
+          "Back Pinot",
+          "WC-104"
+        ],
+        "grapevine_variety": "Pinot Noir",
+        "grapevine_variety_code": "PIN",
+        "GI_region": 0,
+        "contract_id": "SYN-CONTRACT-WC-104",
+        "starting_row_number": 147,
+        "rows_in_block": 30,
+        "area_ha": 1.5,
+        "vendor_data": [
+          {
+            "id": "com.example.grapelog",
+            "key": "block",
+            "value": "WC-104",
+            "last-modified": "2025-07-01T00:00:00Z"
+          }
+        ],
+        "synthetic": true
+      }
+    }
+  ]
+}

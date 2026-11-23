@@ -1,0 +1,8 @@
+registration_number,product_name,product_type,formulation,active_constituent,concentration,harvest_withholding_days,grazing_withholding_days
+SYN-91001,Synth Glypho 540,herbicide,liquid,glyphosate,540 g/L,7,7
+SYN-91002,Synth Trifluralin 480,herbicide,liquid,trifluralin,480 g/L,0,56
+SYN-91003,Synth Pyroxa 850 WG,herbicide,WG,pyroxasulfone,850 g/kg,0,84
+SYN-91004,Synth MCPA 750,herbicide,liquid,MCPA,750 g/L,0,7
+SYN-91005,Synth Tebucon 430,fungicide,liquid,tebuconazole,430 g/L,35,14
+SYN-91006,Synth Alpha-Cyper 100,insecticide,liquid,alpha-cypermethrin,100 g/L,21,7
+SYN-91007,Synth Wetter 1000,adjuvant,liquid,non-ionic surfactant,1000 g/L,0,0

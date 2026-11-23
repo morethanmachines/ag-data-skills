@@ -1,0 +1,15 @@
+Ag Data Skills
+Copyright 2026 More Than Machines and contributors.
+
+Specifications, code lists, crosswalks, documentation and test data are licensed under
+the Creative Commons Attribution 4.0 International licence (LICENSE-CONTENT).
+Code is licensed under the Apache License, Version 2.0 (LICENSE).
+
+The shared spray diary specification is derived from the spray diary and row/block
+specifications developed by More Than Machines for Wine Australia (project WAC 2312, 2023),
+https://github.com/morethanmachines/project-harmony
+
+The grapevine variety list and E-L growth stage data originate from Wine Australia and
+the Australian Wine Research Institute (AWRI) via that repository.
+
+All test data in test-data/ is synthetic and fictional.
