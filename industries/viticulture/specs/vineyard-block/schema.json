@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/viticulture/specs/vineyard-block/schema.json",
+  "title": "Vineyard block",
+  "description": "A vineyard block: the management unit viticulture spray, harvest and contract records refer to. Holds every name a block is known by, with the party that uses each name and when, so records from different systems can be joined.",
+  "x-cp-id": "viticulture/vineyard-block",
+  "x-cp-version": "0.1.0",
+  "x-cp-status": "draft",
+  "x-cp-external-basis": [
+    "reference-spray-diary-2023",
+    "geojson",
+    "abn"
+  ],
+  "x-cp-provenance": [
+    "bootstrap-0003"
+  ],
+  "type": "object",
+  "required": [
+    "spec",
+    "spec_version",
+    "blocks"
+  ],
+  "properties": {
+    "spec": {
+      "const": "viticulture/vineyard-block",
+      "x-cp-kind": "identifier"
+    },
+    "spec_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$",
+      "x-cp-kind": "identifier"
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/block"
+      }
+    }
+  },
+  "patternProperties": {
+    "^x_local_[a-z0-9_]+$": {
+      "description": "Local extension."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "quantity": {
+      "type": "object",
+      "required": [
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "block": {
+      "type": "object",
+      "required": [
+        "block_id"
+      ],
+      "properties": {
+        "block_id": {
+          "type": "string",
+          "description": "Identifier of the block in the scheme named by id_scheme.",
+          "x-cp-kind": "identifier",
+          "x-cp-required-semantics": [
+            "identifier_scheme"
+          ]
+        },
+        "id_scheme": {
+          "type": "string",
+          "description": "Whose identifier block_id is, for example 'grower' or 'buyer:example-wine-co'.",
+          "x-cp-kind": "code"
+        },
+        "business": {
+          "type": "object",
+          "description": "Business the block belongs to, by reference.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "id_scheme": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "names": {
+          "type": "array",
+          "description": "Every name the block is known by, with the party that uses it. Add valid_from and valid_to for renames.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "x-cp-kind": "text"
+              },
+              "used_by": {
+                "type": "string",
+                "description": "Role of the party that uses this name (codelists/party-roles), for example 'owner' for the grower or 'buyer' for the wine company.",
+                "x-cp-kind": "code",
+                "x-cp-codelist": "codelists/party-roles"
+              },
+              "party": {
+                "type": "string",
+                "description": "Which party, if more than one has that role.",
+                "x-cp-kind": "text"
+              },
+              "valid_from": {
+                "type": "string",
+                "format": "date"
+              },
+              "valid_to": {
+                "type": "string",
+                "format": "date",
+                "description": "Last date the name was in use."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Identifiers of the block in other schemes.",
+          "items": {
+            "type": "object",
+            "required": [
+              "scheme",
+              "id"
+            ],
+            "properties": {
+              "scheme": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "variety": {
+          "type": "object",
+          "description": "Grapevine variety planted. A variety code list is pending confirmation of reuse terms (KNOWN_ISSUES).",
+          "properties": {
+            "name": {
+              "type": "string",
+              "x-cp-kind": "text"
+            },
+            "code": {
+              "type": "string",
+              "x-cp-kind": "code"
+            },
+            "code_scheme": {
+              "type": "string",
+              "x-cp-kind": "code"
+            }
+          },
+          "additionalProperties": false
+        },
+        "rootstock": {
+          "type": "string",
+          "x-cp-kind": "text"
+        },
+        "rows": {
+          "type": "object",
+          "description": "Row range of the block.",
+          "properties": {
+            "first": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "last": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "area": {
+          "$ref": "#/$defs/quantity",
+          "description": "Planted area of the block.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "region": {
+          "type": "object",
+          "description": "Region the block is in, for example a geographical indication.",
+          "properties": {
+            "scheme": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "geometry": {
+          "type": "object",
+          "description": "Block boundary as a GeoJSON Polygon or MultiPolygon (RFC 7946, WGS84).",
+          "x-cp-required-semantics": [
+            "crs"
+          ],
+          "x-cp-external-basis": [
+            "geojson"
+          ],
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "Polygon",
+                "MultiPolygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          }
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date"
+        },
+        "valid_to": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "patternProperties": {
+        "^x_local_[a-z0-9_]+$": {
+          "description": "Local extension."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

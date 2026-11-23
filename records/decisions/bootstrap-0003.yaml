@@ -1,0 +1,24 @@
+id: bootstrap-0003
+date: "2026-11-23"
+type: spec_new
+outcome: merged
+bootstrap: true
+pr: null
+commit: null
+summary: "Seed the viticulture vineyard block 0.1.0 draft: block id, names by party with validity dates (for renames), aliases by scheme, variety, rows, area, region and optional GeoJSON geometry."
+contributor:
+  organisation: morethanmachines
+  model: anthropic/claude-opus-5-5
+  harness: claude-code
+  skill_version: 0.1.0
+files:
+  - industries/viticulture/specs/vineyard-block/
+checks:
+  schema_validation: pass
+  scrub: pass
+  overlap: not_available
+  fixture_match: not_available
+reviews: []
+review_note: "Phase 0 seed. Reviews, owed-review and merge workflows do not exist until Phase 2, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
+resulting_versions:
+  viticulture/vineyard-block: 0.1.0

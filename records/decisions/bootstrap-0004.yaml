@@ -1,0 +1,24 @@
+id: bootstrap-0004
+date: "2026-11-23"
+type: profile_change
+outcome: merged
+bootstrap: true
+pr: null
+commit: null
+summary: "Seed the viticulture profile of the shared spray diary: vineyard blocks as management units, E-L crop stages, vintage seasons, E-L stage restrictions."
+contributor:
+  organisation: morethanmachines
+  model: anthropic/claude-opus-5-5
+  harness: claude-code
+  skill_version: 0.1.0
+files:
+  - industries/viticulture/profiles/spray-diary.json
+checks:
+  schema_validation: pass
+  scrub: pass
+  overlap: not_available
+  fixture_match: not_available
+reviews: []
+review_note: "Phase 0 seed. Reviews, owed-review and merge workflows do not exist until Phase 2, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
+resulting_versions:
+  viticulture/spray-diary: 0.1.0

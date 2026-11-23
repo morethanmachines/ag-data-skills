@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/viticulture/profiles/spray-diary.json",
+  "title": "Spray diary: viticulture profile",
+  "description": "How viticulture uses the shared spray diary: management units are vineyard blocks, crop stage uses the modified E-L scale, every record carries a vintage, and stage-based restrictions use E-L stages. Buyer (wine company) comments use comments[].author_role 'buyer'.",
+  "x-cp-id": "viticulture/spray-diary",
+  "x-cp-version": "0.1.0",
+  "x-cp-status": "draft",
+  "x-cp-profile-of": "shared/spray-diary",
+  "x-cp-external-basis": [
+    "reference-spray-diary-2023",
+    "el-growth-stages"
+  ],
+  "x-cp-provenance": [
+    "bootstrap-0004"
+  ],
+  "allOf": [
+    {
+      "$ref": "../../../shared/specs/spray-diary/schema.json"
+    }
+  ],
+  "properties": {
+    "profile": {
+      "const": "viticulture/spray-diary"
+    },
+    "records": {
+      "items": {
+        "required": [
+          "season"
+        ],
+        "properties": {
+          "season": {
+            "required": [
+              "scheme",
+              "year"
+            ],
+            "properties": {
+              "scheme": {
+                "const": "vintage"
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 1900,
+                "maximum": 2200
+              }
+            }
+          },
+          "crop_stage": {
+            "properties": {
+              "scale": {
+                "enum": [
+                  "E-L"
+                ]
+              },
+              "value": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 47
+              }
+            }
+          },
+          "management_units": {
+            "items": {
+              "required": [
+                "unit_type",
+                "id",
+                "id_scheme"
+              ],
+              "properties": {
+                "unit_type": {
+                  "const": "vineyard_block"
+                },
+                "spec": {
+                  "const": "viticulture/vineyard-block"
+                }
+              }
+            }
+          },
+          "products_applied": {
+            "items": {
+              "properties": {
+                "restrictions": {
+                  "items": {
+                    "properties": {
+                      "stage": {
+                        "properties": {
+                          "scale": {
+                            "const": "E-L"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

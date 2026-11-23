@@ -1,0 +1,76 @@
+{
+  "spec": "viticulture/vineyard-block",
+  "spec_version": "0.1.0",
+  "blocks": [
+    {
+      "block_id": "EX-B1",
+      "id_scheme": "grower",
+      "business": {
+        "id": "51 000 000 000",
+        "id_scheme": "ABN",
+        "name": "Synthetic Ridge Vineyard"
+      },
+      "names": [
+        {
+          "name": "Example North",
+          "used_by": "owner"
+        },
+        {
+          "name": "Old North",
+          "used_by": "owner",
+          "valid_to": "2025-06-30"
+        },
+        {
+          "name": "EWC-1",
+          "used_by": "buyer",
+          "party": "Example Wine Company"
+        }
+      ],
+      "aliases": [
+        {
+          "scheme": "buyer:example-wine-company",
+          "id": "EWC-1"
+        }
+      ],
+      "variety": {
+        "name": "Shiraz"
+      },
+      "rows": {
+        "first": 1,
+        "last": 30,
+        "count": 30
+      },
+      "area": {
+        "value": 1.5,
+        "unit": "har"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.1,
+              -35.01
+            ],
+            [
+              138.102,
+              -35.01
+            ],
+            [
+              138.102,
+              -35.012
+            ],
+            [
+              138.1,
+              -35.012
+            ],
+            [
+              138.1,
+              -35.01
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
