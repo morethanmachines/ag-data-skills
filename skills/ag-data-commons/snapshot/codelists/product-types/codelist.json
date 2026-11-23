@@ -1,0 +1,68 @@
+{
+  "id": "product-types",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Minimal starting list of product types. Taxonomy is an open question (shared spray diary KNOWN_ISSUES 1).",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "external_basis": [
+    "apvma-register"
+  ],
+  "values": [
+    {
+      "code": "herbicide",
+      "label": "Herbicide"
+    },
+    {
+      "code": "fungicide",
+      "label": "Fungicide"
+    },
+    {
+      "code": "insecticide",
+      "label": "Insecticide"
+    },
+    {
+      "code": "miticide",
+      "label": "Miticide"
+    },
+    {
+      "code": "nematicide",
+      "label": "Nematicide"
+    },
+    {
+      "code": "molluscicide",
+      "label": "Molluscicide"
+    },
+    {
+      "code": "plant_growth_regulator",
+      "label": "Plant growth regulator"
+    },
+    {
+      "code": "adjuvant",
+      "label": "Adjuvant",
+      "definition": "Wetters, surfactants, oils and other spray adjuvants."
+    },
+    {
+      "code": "desiccant",
+      "label": "Desiccant",
+      "definition": "Product applied to desiccate a crop before harvest."
+    },
+    {
+      "code": "foliar_nutrient",
+      "label": "Foliar nutrient"
+    },
+    {
+      "code": "biological",
+      "label": "Biological"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

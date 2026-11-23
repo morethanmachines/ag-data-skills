@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/codelist.schema.json",
+  "title": "Code list",
+  "type": "object",
+  "required": ["id", "version", "status", "description", "licence", "provenance", "industries", "values"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "status": { "enum": ["draft", "active", "deprecated"] },
+    "description": { "type": "string", "minLength": 1 },
+    "licence": { "type": "string", "minLength": 1 },
+    "provenance": { "type": "array", "items": { "type": "string" } },
+    "external_basis": { "type": "array", "items": { "type": "string" } },
+    "industries": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "Industry ids from governance/industries.yaml, or 'shared'." },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["code", "label"],
+        "properties": {
+          "code": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "definition": { "type": "string" },
+          "synonyms": { "type": "array", "items": { "type": "string" } },
+          "external_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["scheme", "id"],
+              "properties": { "scheme": { "type": "string" }, "id": { "type": "string" } },
+              "additionalProperties": false
+            }
+          },
+          "deprecated": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

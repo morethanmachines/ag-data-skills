@@ -1,0 +1,58 @@
+{
+  "id": "crop-stage-scales",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Growth stage scales. The scales are referenced by name and stage number only.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "external_basis": [
+    "el-growth-stages",
+    "zadoks",
+    "bbch"
+  ],
+  "values": [
+    {
+      "code": "E-L",
+      "label": "Modified E-L (grapevine)",
+      "definition": "Integer stages 1 to 47.",
+      "external_ids": [
+        {
+          "scheme": "external",
+          "id": "el-growth-stages"
+        }
+      ]
+    },
+    {
+      "code": "Zadoks",
+      "label": "Zadoks (cereals)",
+      "definition": "Decimal stages 0 to 99, often written Z23.",
+      "external_ids": [
+        {
+          "scheme": "external",
+          "id": "zadoks"
+        }
+      ]
+    },
+    {
+      "code": "BBCH",
+      "label": "BBCH",
+      "definition": "Stages 0 to 99, often written BBCH 55.",
+      "external_ids": [
+        {
+          "scheme": "external",
+          "id": "bbch"
+        }
+      ]
+    },
+    {
+      "code": "text",
+      "label": "Free text",
+      "definition": "A timing in words, for example pre-sowing or desiccation."
+    }
+  ]
+}

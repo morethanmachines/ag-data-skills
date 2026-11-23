@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/review.schema.json",
+  "title": "Structured review",
+  "description": "The cp-review YAML block in a pull request review body. Every reviewer is an agent.",
+  "type": "object",
+  "required": ["cp-review"],
+  "properties": {
+    "cp-review": {
+      "type": "object",
+      "required": ["model", "harness", "verdict", "semantics_sound", "evidence_adequate", "side_effects", "reasons"],
+      "properties": {
+        "model": { "type": "string" },
+        "harness": { "type": "string" },
+        "verdict": { "enum": ["approve", "reject", "revise"] },
+        "duplicate_of": { "type": ["string", "null"] },
+        "covered_by_external_standard": { "type": ["string", "null"] },
+        "semantics_sound": { "type": "boolean" },
+        "evidence_adequate": { "type": "boolean" },
+        "side_effects": { "type": "string" },
+        "reasons": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

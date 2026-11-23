@@ -1,0 +1,38 @@
+{
+  "id": "restriction-types",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Kinds of use restriction attached to a product application.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "withholding_period",
+      "label": "Withholding period",
+      "definition": "Minimum time between application and harvest, grazing, cutting for stock feed or similar."
+    },
+    {
+      "code": "re_entry_interval",
+      "label": "Re-entry interval",
+      "definition": "Time before people may re-enter the treated area without protective equipment."
+    },
+    {
+      "code": "stage_restriction",
+      "label": "Stage restriction",
+      "definition": "Use not permitted after a crop stage."
+    },
+    {
+      "code": "export_slaughter_interval",
+      "label": "Export slaughter interval"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

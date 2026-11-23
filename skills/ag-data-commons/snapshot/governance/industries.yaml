@@ -1,0 +1,58 @@
+# Governed list of industry identifiers. Agents use these ids for industry folders and tags
+# and must not invent near-duplicates. The list is aligned to the industries covered by
+# Australia's 15 rural Research and Development Corporations (RDCs); each entry names the
+# RDC whose remit covers it. Post-farm-gate remits (meat processing, live export) are not
+# listed as industries because spray, soil and production records are farm-level data.
+# Adding an industry is a governance_change.
+industries:
+  - id: viticulture
+    name: Wine grapes
+    rdc: Wine Australia
+  - id: grains
+    name: Grains (cereals, oilseeds and pulses)
+    rdc: Grains Research and Development Corporation
+  - id: horticulture
+    name: Horticulture (fruit, vegetables, nuts, nursery and turf)
+    rdc: Hort Innovation
+  - id: cotton
+    name: Cotton
+    rdc: Cotton Research and Development Corporation
+  - id: sugarcane
+    name: Sugarcane
+    rdc: Sugar Research Australia
+  - id: rice
+    name: Rice
+    rdc: AgriFutures Australia
+  - id: chicken-meat
+    name: Chicken meat
+    rdc: AgriFutures Australia
+  - id: honey-bees
+    name: Honey bees and pollination
+    rdc: AgriFutures Australia
+  - id: eggs
+    name: Eggs
+    rdc: Australian Eggs
+  - id: dairy
+    name: Dairy
+    rdc: Dairy Australia
+  - id: beef
+    name: Beef cattle
+    rdc: Meat & Livestock Australia
+  - id: sheepmeat
+    name: Sheep meat
+    rdc: Meat & Livestock Australia
+  - id: goats
+    name: Goats
+    rdc: Meat & Livestock Australia
+  - id: wool
+    name: Wool
+    rdc: Australian Wool Innovation
+  - id: pork
+    name: Pork
+    rdc: Australian Pork Limited
+  - id: fisheries-aquaculture
+    name: Fisheries and aquaculture
+    rdc: Fisheries Research and Development Corporation
+  - id: forestry
+    name: Forestry and wood products
+    rdc: Forest and Wood Products Australia

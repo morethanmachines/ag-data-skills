@@ -1,0 +1,44 @@
+# Rules for synthetic data in fixtures and examples. The scrub check enforces them.
+
+# Designated offshore test areas. Every coordinate in a contribution MUST fall inside one
+# of these boxes, so no geometry can match a real property. Longitude/latitude in WGS84.
+test_areas:
+  - id: gulf-st-vincent
+    description: Gulf St Vincent, South Australia, offshore (used by spray-diary-01).
+    min_lon: 137.95
+    max_lon: 138.25
+    min_lat: -35.20
+    max_lat: -34.85
+  - id: indian-ocean-geraldton
+    description: Indian Ocean west of Geraldton, Western Australia, offshore (used by spray-diary-02).
+    min_lon: 113.50
+    max_lon: 114.30
+    min_lat: -29.20
+    max_lat: -28.40
+
+# Synthetic product registration numbers use this prefix; real APVMA numbers do not.
+registration_number_pattern: "^SYN-[0-9]{4,6}$"
+
+# ABNs in synthetic data MUST fail the ABN checksum. ACNs MUST fail the ACN checksum.
+abn_must_fail_checksum: true
+acn_must_fail_checksum: true
+
+# Fixed list of fictional names for people and businesses in fixtures.
+fictional_people:
+  - Alex Example
+  - Sam Sample
+  - Jordan Placeholder
+  - Casey Testcase
+  - Robin Fixture
+  - Morgan Mock
+  - Taylor Dummy
+  - Jamie Synthetic
+  - Sam Placeholder
+  - R. Placeholder
+  - Jo Fictional
+fictional_businesses:
+  - Synthetic Ridge Vineyard
+  - Synthetic Plains
+  - Synthetic Aerial & Ground
+  - Example Wine Company
+  - Sample Grain Co

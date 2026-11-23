@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "description": "An evidence tier and a short reference to the evidence. Never a numeric confidence.",
+  "type": "object",
+  "required": ["tier", "ref"],
+  "properties": {
+    "tier": { "enum": ["E0", "E1", "E2", "E3", "E4", "E5"] },
+    "ref": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,81 @@
+# Ag Data Skills governance configuration.
+# Every threshold and weight the workflows apply lives here. Changing a rule is itself a
+# contribution (type: governance_change) and goes through the same checks and reviews.
+# GOVERNANCE.md is generated from this file by the build-index workflow.
+
+config_version: 1
+
+review:
+  reviews_required: 3
+  min_reviewer_model_families: 2
+  reviews_owed_per_submission: 2
+  approve_threshold_weighted: 0.67
+  stale_days: 7
+  fallback_after_hours: 48
+  fallback_monthly_budget_usd: 200
+  fallback_model_families: [anthropic, openai, google]
+
+bootstrap:
+  # While fewer than this many organisations are active, reviews may come from reviewing
+  # agents run by More Than Machines or fallback-review agents under different model
+  # families, and decision records are marked bootstrap: true.
+  min_active_organisations: 3
+
+crosswalks:
+  fingerprint_match_threshold: 0.8
+  crosswalk_min_sightings_orgs: 2
+
+drafts:
+  draft_expiry_months: 12
+  overlap_threshold: 0.6
+
+promotion:
+  min_independent_organisations: 3
+  min_model_families: 2
+  min_distinct_fingerprints: 3
+
+versioning:
+  deprecation_window_days: 180
+
+evidence:
+  min_tier_for_spec_change: E3
+  min_tier_for_crosswalk_required_fields: E2
+
+fixture_match:
+  numeric_relative_tolerance: 0.005
+
+regression:
+  allowed_regressions: 0
+
+rate_limits:
+  open_prs_per_organisation: 10
+
+privacy:
+  # Synthetic data rules, fictional names and the designated offshore test areas.
+  synthetic_rules: governance/synthetic.yaml
+  # Paths the scrub check skips. Adding a path is a governance_change. The scrub unit tests
+  # contain deliberate real-looking identifiers to prove they are rejected.
+  scrub_exempt_paths:
+    - ci/internal/scrub/scrub_test.go
+  deny_list: governance/scrub-denylist.yaml
+
+snapshot:
+  max_bytes: 4000000
+  stale_after_days: 90
+  include:
+    - INDEX.md
+    - index/
+    - shared/
+    - industries/
+    - codelists/
+    - external/registry.yaml
+    - governance/config.yaml
+    - governance/evidence-tiers.yaml
+    - governance/industries.yaml
+    - governance/synthetic.yaml
+    - governance/schemas/
+  exclude:
+    - "*/tasks/"
+    - "*/examples/"
+    - "*/sightings/"
+    - "*/extensions/usage/"

@@ -1,0 +1,970 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/shared/specs/spray-diary/schema.json",
+  "title": "Shared spray diary",
+  "description": "Industry-neutral record of agrochemical applications: when, where (management units, by reference), what (products, rates, quantities), how (method, carrier), restrictions (withholding periods, re-entry intervals) and conditions (weather). Industry specifics live in industry profiles.",
+  "x-cp-id": "shared/spray-diary",
+  "x-cp-version": "0.1.0",
+  "x-cp-status": "draft",
+  "x-cp-external-basis": [
+    "reference-spray-diary-2023",
+    "apvma-register",
+    "ucum",
+    "iana-tz",
+    "abn"
+  ],
+  "x-cp-provenance": [
+    "bootstrap-0001"
+  ],
+  "type": "object",
+  "required": [
+    "spec",
+    "spec_version",
+    "records"
+  ],
+  "properties": {
+    "spec": {
+      "const": "shared/spray-diary",
+      "description": "Spec id this document conforms to.",
+      "x-cp-kind": "identifier"
+    },
+    "spec_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$",
+      "description": "Version of the spec this document conforms to.",
+      "x-cp-kind": "identifier"
+    },
+    "profile": {
+      "type": "string",
+      "description": "Industry profile id the document also conforms to, for example 'viticulture/spray-diary'.",
+      "x-cp-kind": "identifier"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/application_record"
+      },
+      "description": "Application records."
+    },
+    "mapping": {
+      "$ref": "#/$defs/mapping",
+      "description": "How this document was mapped from its sources, with evidence. Carries no source values."
+    }
+  },
+  "patternProperties": {
+    "^x_local_[a-z0-9_]+$": {
+      "description": "Local extension. Never merged directly; report its use under extensions/usage/."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "quantity": {
+      "type": "object",
+      "required": [
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "UCUM code from codelists/units (for example 'L', 'kg', 'har' for hectare)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "value",
+        "unit",
+        "status"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "UCUM code from codelists/units."
+        },
+        "status": {
+          "type": "string",
+          "description": "Whether the value was measured, estimated, forecast or planned, or unknown.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/measurement-status",
+          "enum": [
+            "measured",
+            "estimated",
+            "forecast",
+            "planned",
+            "unknown"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "rate": {
+      "type": "object",
+      "required": [
+        "value",
+        "unit",
+        "basis"
+      ],
+      "description": "An application rate: an amount of product (or carrier) per basis.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "UCUM code of the amount (numerator) from codelists/units, for example 'mL', 'g', 'L'."
+        },
+        "basis": {
+          "type": "string",
+          "description": "What the amount is per. See codelists/rate-basis.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/rate-basis",
+          "enum": [
+            "per_hectare",
+            "per_100L_dilute",
+            "per_100L_tank",
+            "per_plant",
+            "per_100m_row"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "local_time": {
+      "type": "object",
+      "required": [
+        "local"
+      ],
+      "description": "A wall-clock time with its timezone. If the source states no timezone and the context does not settle it, leave timezone out and list it under mapping.unresolved_semantics.",
+      "properties": {
+        "local": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?)?$",
+          "description": "Local date or date-time, ISO 8601 without offset (YYYY-MM-DD or YYYY-MM-DDTHH:MM[:SS])."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone id, for example 'Australia/Adelaide'.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "external:iana-tz"
+        },
+        "utc_offset": {
+          "type": "string",
+          "pattern": "^[+-][0-9]{2}:[0-9]{2}$",
+          "description": "UTC offset in force at that time, if known, for example '+10:30'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "party_ref": {
+      "type": "object",
+      "description": "A business or person, by reference. Do not repeat addresses, phone numbers or other personal details.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-cp-kind": "identifier",
+          "x-cp-required-semantics": [
+            "identifier_scheme"
+          ]
+        },
+        "id_scheme": {
+          "type": "string",
+          "description": "For example 'ABN', or a system-local scheme such as 'vinediary:operator'.",
+          "x-cp-kind": "code"
+        },
+        "name": {
+          "type": "string",
+          "x-cp-kind": "text"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the party in this application.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/party-roles",
+          "enum": [
+            "owner",
+            "manager",
+            "employee",
+            "contractor",
+            "consultant",
+            "buyer",
+            "auditor",
+            "other"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "management_unit": {
+      "type": "object",
+      "required": [
+        "unit_type",
+        "id"
+      ],
+      "description": "A management unit treated by the application (paddock, field, block, bay, shed, and so on), by reference.",
+      "properties": {
+        "unit_type": {
+          "type": "string",
+          "description": "Kind of management unit.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/management-unit-types"
+        },
+        "id": {
+          "type": "string",
+          "description": "Identifier of the unit in the scheme named by id_scheme.",
+          "x-cp-kind": "identifier",
+          "x-cp-required-semantics": [
+            "identifier_scheme"
+          ]
+        },
+        "id_scheme": {
+          "type": "string",
+          "description": "Whose identifier this is, for example 'grower', 'buyer:example-wine-co', 'contractor'.",
+          "x-cp-kind": "code"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the unit as used by the party that recorded the application.",
+          "x-cp-kind": "text"
+        },
+        "spec": {
+          "type": "string",
+          "description": "Spec that describes this kind of unit, by spec id, for example 'viticulture/vineyard-block'.",
+          "x-cp-kind": "reference"
+        },
+        "area_treated": {
+          "$ref": "#/$defs/quantity",
+          "description": "Area actually treated in this unit.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "area_total": {
+          "$ref": "#/$defs/quantity",
+          "description": "Total area of the unit, if stated.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "crop": {
+          "type": "object",
+          "description": "Crop in the unit at the time of application.",
+          "properties": {
+            "species": {
+              "type": "string",
+              "x-cp-kind": "text"
+            },
+            "variety": {
+              "type": "string",
+              "x-cp-kind": "text"
+            },
+            "variety_code": {
+              "type": "string",
+              "x-cp-kind": "code"
+            },
+            "variety_code_scheme": {
+              "type": "string",
+              "x-cp-kind": "code"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "patternProperties": {
+        "^x_local_[a-z0-9_]+$": {
+          "description": "Local extension. Never merged directly; report its use under extensions/usage/."
+        }
+      },
+      "additionalProperties": false
+    },
+    "restriction": {
+      "type": "object",
+      "required": [
+        "type",
+        "source"
+      ],
+      "description": "A use restriction that applies to a product application.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Kind of restriction.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/restriction-types",
+          "enum": [
+            "withholding_period",
+            "re_entry_interval",
+            "stage_restriction",
+            "export_slaughter_interval",
+            "other"
+          ]
+        },
+        "applies_to": {
+          "type": "string",
+          "description": "What the restriction applies to, for example 'harvest', 'grazing', 'stock_feed', 're_entry', 'export'.",
+          "x-cp-kind": "code"
+        },
+        "period": {
+          "$ref": "#/$defs/quantity",
+          "description": "Length of the restriction period, in days ('d') or hours ('h').",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "stage": {
+          "$ref": "#/$defs/crop_stage",
+          "description": "For stage restrictions: the crop stage after which use is not permitted."
+        },
+        "source": {
+          "type": "string",
+          "description": "Where the restriction comes from.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/restriction-sources",
+          "enum": [
+            "label",
+            "permit",
+            "buyer",
+            "industry_body",
+            "regulator",
+            "other"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "description": "Reference to the source (label version, permit number, buyer schedule).",
+          "x-cp-kind": "text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "crop_stage": {
+      "type": "object",
+      "required": [
+        "scale"
+      ],
+      "description": "Crop growth stage on a named scale. Use scale 'text' for words such as 'pre-sowing'.",
+      "properties": {
+        "scale": {
+          "type": "string",
+          "description": "Growth stage scale.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/crop-stage-scales"
+        },
+        "value": {
+          "type": [
+            "integer",
+            "number",
+            "string"
+          ],
+          "description": "Stage on the scale (a number for numeric scales)."
+        },
+        "text": {
+          "type": "string",
+          "description": "Stage as written in the source, or a description for scale 'text'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "product_application": {
+      "type": "object",
+      "required": [
+        "product_name"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "rate"
+          ]
+        },
+        {
+          "required": [
+            "total_quantity"
+          ]
+        }
+      ],
+      "description": "One product applied in the application (one entry per product in a tank mix).",
+      "properties": {
+        "product_name": {
+          "type": "string",
+          "description": "Product name as registered, or as recorded if the registered name is not known.",
+          "x-cp-kind": "text"
+        },
+        "registration": {
+          "type": "object",
+          "required": [
+            "number",
+            "scheme"
+          ],
+          "properties": {
+            "number": {
+              "type": "string",
+              "x-cp-kind": "identifier",
+              "x-cp-required-semantics": [
+                "identifier_scheme"
+              ]
+            },
+            "scheme": {
+              "type": "string",
+              "description": "For example 'APVMA' for registered products, 'APVMA-permit' for permits.",
+              "x-cp-kind": "code",
+              "x-cp-external-basis": [
+                "apvma-register"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "product_type": {
+          "type": "string",
+          "description": "Product type.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/product-types"
+        },
+        "formulation": {
+          "type": "string",
+          "x-cp-kind": "text"
+        },
+        "active_constituents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "x-cp-kind": "text"
+              },
+              "concentration": {
+                "$ref": "#/$defs/quantity",
+                "description": "Concentration of the active constituent in the product, for example 540 g/L ('g/L').",
+                "x-cp-kind": "quantity",
+                "x-cp-required-semantics": [
+                  "unit"
+                ],
+                "x-cp-unit-system": "UCUM",
+                "x-cp-codelist": "codelists/units"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Target pests, diseases or weeds.",
+          "x-cp-kind": "text"
+        },
+        "rate": {
+          "$ref": "#/$defs/rate",
+          "description": "Rate at which the product was applied.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "rate_basis"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-exact-mappings": []
+        },
+        "concentration_factor": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Concentration factor used for concentrate spraying, where relevant (tank rate = dilute rate x concentration factor).",
+          "x-cp-kind": "quantity"
+        },
+        "total_quantity": {
+          "$ref": "#/$defs/quantity",
+          "description": "Total amount of product applied in this application, across all management units in the record. How to split a job total across units is an open question (KNOWN_ISSUES 3).",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/restriction"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x_local_[a-z0-9_]+$": {
+          "description": "Local extension. Never merged directly; report its use under extensions/usage/."
+        }
+      },
+      "additionalProperties": false
+    },
+    "weather_observation": {
+      "type": "object",
+      "properties": {
+        "observed_at": {
+          "$ref": "#/$defs/local_time"
+        },
+        "wind_speed": {
+          "$ref": "#/$defs/observation",
+          "description": "Wind speed.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "measurement_status"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "wind_direction": {
+          "type": "string",
+          "description": "Direction the wind is blowing from: a 16-point compass code (codelists/compass-points) or degrees as a string.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/compass-points"
+        },
+        "temperature": {
+          "$ref": "#/$defs/observation",
+          "description": "Air temperature.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "measurement_status"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "relative_humidity": {
+          "$ref": "#/$defs/observation",
+          "description": "Relative humidity ('%').",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "measurement_status"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "precipitation": {
+          "$ref": "#/$defs/observation",
+          "description": "Precipitation.",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "measurement_status"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "delta_t": {
+          "$ref": "#/$defs/observation",
+          "description": "Delta T (dry bulb minus wet bulb temperature).",
+          "x-cp-kind": "quantity",
+          "x-cp-required-semantics": [
+            "unit",
+            "measurement_status"
+          ],
+          "x-cp-unit-system": "UCUM",
+          "x-cp-codelist": "codelists/units"
+        },
+        "location": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "description": "Coarse location of the observation (WGS84).",
+          "x-cp-required-semantics": [
+            "crs"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "precision_m": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "patternProperties": {
+        "^x_local_[a-z0-9_]+$": {
+          "description": "Local extension. Never merged directly; report its use under extensions/usage/."
+        }
+      },
+      "additionalProperties": false
+    },
+    "comment": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "author_role": {
+          "type": "string",
+          "description": "Who wrote the comment.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/party-roles",
+          "enum": [
+            "owner",
+            "manager",
+            "employee",
+            "contractor",
+            "consultant",
+            "buyer",
+            "auditor",
+            "other"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "application_record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "start",
+        "management_units",
+        "products_applied"
+      ],
+      "description": "One application event: one tank mix applied in one session to one or more management units.",
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "description": "Identifier of the application event.",
+          "x-cp-kind": "identifier",
+          "x-cp-required-semantics": [
+            "identifier_scheme"
+          ]
+        },
+        "record_id_scheme": {
+          "type": "string",
+          "description": "Whose identifier record_id is, for example 'vinediary' or 'derived'.",
+          "x-cp-kind": "code"
+        },
+        "created": {
+          "$ref": "#/$defs/local_time",
+          "x-cp-kind": "datetime",
+          "x-cp-required-semantics": [
+            "timezone"
+          ]
+        },
+        "modified": {
+          "$ref": "#/$defs/local_time",
+          "x-cp-kind": "datetime",
+          "x-cp-required-semantics": [
+            "timezone"
+          ]
+        },
+        "start": {
+          "$ref": "#/$defs/local_time",
+          "description": "Start of the application session.",
+          "x-cp-kind": "datetime",
+          "x-cp-required-semantics": [
+            "timezone"
+          ]
+        },
+        "end": {
+          "$ref": "#/$defs/local_time",
+          "description": "End of the application session.",
+          "x-cp-kind": "datetime",
+          "x-cp-required-semantics": [
+            "timezone"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "Whether the record is a draft or has been submitted.",
+          "x-cp-kind": "code",
+          "x-cp-codelist": "codelists/record-status",
+          "enum": [
+            "draft",
+            "submitted"
+          ]
+        },
+        "season": {
+          "type": "object",
+          "required": [
+            "scheme",
+            "label"
+          ],
+          "description": "Season the application belongs to. Profiles fix the scheme (for example vintage for viticulture).",
+          "properties": {
+            "scheme": {
+              "type": "string",
+              "description": "How seasons are counted.",
+              "x-cp-kind": "code",
+              "x-cp-codelist": "codelists/season-schemes",
+              "enum": [
+                "calendar_year",
+                "financial_year",
+                "vintage",
+                "crop_year",
+                "other"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "description": "Season label, for example '2026' or '2025-26'."
+            },
+            "year": {
+              "type": "integer",
+              "description": "Season year where the scheme has one (the vintage year, the harvest year)."
+            }
+          },
+          "additionalProperties": false
+        },
+        "business": {
+          "$ref": "#/$defs/party_ref",
+          "description": "Business responsible for the application."
+        },
+        "applied_by": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/party_ref"
+          },
+          "description": "Operators or contractors who carried out the application."
+        },
+        "management_units": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/management_unit"
+          }
+        },
+        "crop_stage": {
+          "$ref": "#/$defs/crop_stage"
+        },
+        "products_applied": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/product_application"
+          }
+        },
+        "application": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "description": "Application method.",
+              "x-cp-kind": "code",
+              "x-cp-codelist": "codelists/application-methods"
+            },
+            "equipment": {
+              "type": "string",
+              "x-cp-kind": "text"
+            },
+            "spray_width": {
+              "$ref": "#/$defs/quantity",
+              "description": "Spray width or swath.",
+              "x-cp-kind": "quantity",
+              "x-cp-required-semantics": [
+                "unit"
+              ],
+              "x-cp-unit-system": "UCUM",
+              "x-cp-codelist": "codelists/units"
+            }
+          },
+          "additionalProperties": false
+        },
+        "carrier": {
+          "type": "object",
+          "description": "Carrier (usually water) the products were applied in.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "water",
+              "x-cp-kind": "text"
+            },
+            "rate": {
+              "$ref": "#/$defs/rate",
+              "description": "Carrier volume per basis (usually L per hectare).",
+              "x-cp-kind": "quantity",
+              "x-cp-required-semantics": [
+                "unit",
+                "rate_basis"
+              ],
+              "x-cp-unit-system": "UCUM"
+            },
+            "total": {
+              "$ref": "#/$defs/quantity",
+              "description": "Total carrier volume for the whole application.",
+              "x-cp-kind": "quantity",
+              "x-cp-required-semantics": [
+                "unit"
+              ],
+              "x-cp-unit-system": "UCUM",
+              "x-cp-codelist": "codelists/units"
+            }
+          },
+          "additionalProperties": false
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/weather_observation"
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/comment"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x_local_[a-z0-9_]+$": {
+          "description": "Local extension. Never merged directly; report its use under extensions/usage/."
+        }
+      },
+      "additionalProperties": false
+    },
+    "mapping": {
+      "type": "object",
+      "description": "Provenance of a mapped document: which source shapes it came from and the evidence for each field. No source values.",
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "fingerprint_id"
+            ],
+            "properties": {
+              "fingerprint_id": {
+                "type": "string"
+              },
+              "crosswalk": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Crosswalk path followed, or null if mapped directly to the spec."
+              },
+              "system_hint": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "target",
+                    "evidence"
+                  ],
+                  "properties": {
+                    "target": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "string"
+                    },
+                    "evidence": {
+                      "$ref": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/evidence.schema.json"
+                    },
+                    "semantics": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "value",
+                          "evidence"
+                        ],
+                        "properties": {
+                          "value": {},
+                          "evidence": {
+                            "$ref": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/evidence.schema.json"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "losses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "source",
+                    "reason"
+                  ],
+                  "properties": {
+                    "source": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "disposition": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "unresolved_semantics": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "target",
+                    "attribute",
+                    "reason"
+                  ],
+                  "properties": {
+                    "target": {
+                      "type": "string"
+                    },
+                    "attribute": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

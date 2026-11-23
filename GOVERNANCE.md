@@ -90,7 +90,7 @@ Generated from `governance/config.yaml` by the build-index workflow. Do not edit
 |---|---|
 | `max_bytes` | 4000000 |
 | `stale_after_days` | 90 |
-| `include` | INDEX.md, index/, shared/, industries/, codelists/, external/registry.yaml, governance/evidence-tiers.yaml, governance/industries.yaml, governance/synthetic.yaml, governance/schemas/ |
+| `include` | INDEX.md, index/, shared/, industries/, codelists/, external/registry.yaml, governance/config.yaml, governance/evidence-tiers.yaml, governance/industries.yaml, governance/synthetic.yaml, governance/schemas/ |
 | `exclude` | */tasks/, */examples/, */sightings/, */extensions/usage/ |
 
 ## Evidence tiers

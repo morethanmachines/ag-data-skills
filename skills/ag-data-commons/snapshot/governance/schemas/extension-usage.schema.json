@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/extension-usage.schema.json",
+  "title": "Local extension usage report",
+  "type": "object",
+  "required": ["usage_version", "name", "kind", "evidence", "source_fingerprint_hash", "organisation", "model_family", "date"],
+  "properties": {
+    "usage_version": { "const": 1 },
+    "name": { "type": "string", "pattern": "^x_local_[a-z0-9_]+$" },
+    "kind": { "type": "string" },
+    "description": { "type": "string" },
+    "semantics": { "type": "object", "additionalProperties": { "type": "string" } },
+    "evidence": { "$ref": "evidence.schema.json" },
+    "source_fingerprint_hash": { "type": "string", "pattern": "^fp-[0-9a-f]{12}$" },
+    "organisation": { "type": "string" },
+    "model_family": { "type": "string" },
+    "date": { "type": "string", "format": "date" }
+  },
+  "additionalProperties": false
+}

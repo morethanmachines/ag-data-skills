@@ -1,0 +1,23 @@
+{
+  "id": "record-status",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Status of an application record.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "draft",
+      "label": "Draft"
+    },
+    {
+      "code": "submitted",
+      "label": "Submitted"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "party-roles",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Roles of parties in an application record.",
+  "licence": "CC-BY-4.0",
+  "provenance": [
+    "bootstrap-0002"
+  ],
+  "industries": [
+    "shared"
+  ],
+  "values": [
+    {
+      "code": "owner",
+      "label": "Owner"
+    },
+    {
+      "code": "manager",
+      "label": "Manager"
+    },
+    {
+      "code": "employee",
+      "label": "Employee or operator"
+    },
+    {
+      "code": "contractor",
+      "label": "Contractor"
+    },
+    {
+      "code": "consultant",
+      "label": "Consultant or agronomist"
+    },
+    {
+      "code": "buyer",
+      "label": "Buyer",
+      "definition": "For example a wine company."
+    },
+    {
+      "code": "auditor",
+      "label": "Auditor"
+    },
+    {
+      "code": "other",
+      "label": "Other"
+    }
+  ]
+}

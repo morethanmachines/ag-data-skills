@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/decision.schema.json",
+  "title": "Decision record",
+  "type": "object",
+  "required": ["id", "date", "type", "outcome", "bootstrap", "contributor", "files", "checks", "reviews"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^(pr-[0-9]+|bootstrap-[0-9]{4})$" },
+    "date": { "type": "string", "format": "date" },
+    "type": { "type": "string" },
+    "outcome": { "enum": ["merged", "rejected", "closed"] },
+    "bootstrap": { "type": "boolean" },
+    "pr": { "type": ["integer", "null"] },
+    "commit": { "type": ["string", "null"] },
+    "summary": { "type": "string" },
+    "contributor": {
+      "type": "object",
+      "required": ["organisation", "model", "harness"],
+      "properties": { "organisation": { "type": "string" }, "model": { "type": "string" }, "harness": { "type": "string" }, "skill_version": { "type": "string" } },
+      "additionalProperties": false
+    },
+    "files": { "type": "array", "items": { "type": "string" } },
+    "checks": { "type": "object", "additionalProperties": { "enum": ["pass", "fail", "skipped", "not_available"] } },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["model_family", "verdict", "weight"],
+        "properties": { "reviewer": { "type": "string" }, "model": { "type": "string" }, "model_family": { "type": "string" }, "verdict": { "enum": ["approve", "reject", "revise"] }, "weight": { "type": "number" }, "fallback": { "type": "boolean" } },
+        "additionalProperties": false
+      }
+    },
+    "review_note": { "type": "string" },
+    "resulting_versions": { "type": "object", "additionalProperties": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

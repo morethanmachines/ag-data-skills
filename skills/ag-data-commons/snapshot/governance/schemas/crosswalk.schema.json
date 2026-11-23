@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/crosswalk.schema.json",
+  "title": "Crosswalk",
+  "description": "Declarative mapping instructions from one source shape to one spec version, followed by an agent and checked by fixtures.",
+  "type": "object",
+  "required": ["crosswalk_version", "source", "target", "record_rule", "fields", "fixtures"],
+  "properties": {
+    "crosswalk_version": { "const": 1 },
+    "source": {
+      "type": "object",
+      "required": ["fingerprint"],
+      "properties": {
+        "fingerprint": { "type": "string" },
+        "system_hint": {
+          "type": "object",
+          "required": ["name", "evidence"],
+          "properties": { "name": { "type": "string" }, "evidence": { "$ref": "evidence.schema.json" } },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "required": ["spec", "version"],
+      "properties": {
+        "spec": { "type": "string" },
+        "profile": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "record_rule": { "type": "string", "minLength": 1 },
+    "context": { "type": "array", "items": { "type": "string" }, "description": "Reference files or facts the crosswalk needs (for example a block list)." },
+    "fields": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["target", "from", "instruction", "evidence"],
+        "properties": {
+          "target": { "type": "string" },
+          "from": { "type": "string" },
+          "instruction": { "type": "string", "minLength": 1 },
+          "evidence": { "$ref": "evidence.schema.json" },
+          "semantics": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["value", "evidence"],
+              "properties": { "value": {}, "evidence": { "$ref": "evidence.schema.json" } },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "reason"],
+        "properties": { "source": { "type": "string" }, "reason": { "type": "string" }, "disposition": { "type": "string" } },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_semantics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target", "attribute", "reason"],
+        "properties": { "target": { "type": "string" }, "attribute": { "type": "string" }, "reason": { "type": "string" } },
+        "additionalProperties": false
+      }
+    },
+    "fixtures": {
+      "type": "object",
+      "required": ["input", "expected_output"],
+      "properties": {
+        "input": { "oneOf": [ { "type": "string" }, { "type": "array", "items": { "type": "string" } } ] },
+        "expected_output": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
