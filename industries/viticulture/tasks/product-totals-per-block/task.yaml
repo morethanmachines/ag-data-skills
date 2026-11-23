@@ -1,0 +1,38 @@
+# Downstream task. The expected answer is held in the private hidden-fixtures store and is
+# never committed to this repository.
+task_version: 1
+id: product-totals-per-block
+industry: viticulture
+fixture_set: spray-diary-01
+spec: viticulture/spray-diary
+question: What was the total quantity of each product applied to each block this vintage, using the wine
+  company's block codes?
+inputs:
+- fixtures/spray-diary-01/exports/vinediary_export_2025-26.csv
+- fixtures/spray-diary-01/exports/grapelog_export_2025-26.csv
+- fixtures/spray-diary-01/exports/spray_diary_2025-26.xlsx
+- fixtures/spray-diary-01/reference/vineyard_blocks.geojson
+- fixtures/spray-diary-01/reference/product_register.csv
+- fixtures/spray-diary-01/reference/harvest_dates.csv
+method:
+- Map every export to shared/spray-diary with the viticulture profile, and the block reference to viticulture/vineyard-block.
+- Resolve each record's management unit to the wine company (buyer) block code using the block names and
+  their validity dates.
+- Resolve each product to its registration number using the product register; match names that differ
+  only in prefix, case or spacing.
+- 'The exports describe the same application events. Do not add them together: compute the answer from
+  each source and check that they agree.'
+- 'For each product application on each management unit, compute the amount applied from the rate and
+  its basis (shared/specs/spray-diary/README.md): per_hectare: rate x area_treated; per_100L_tank: rate
+  x carrier rate (L/ha) x area_treated / 100; per_100L_dilute: rate x concentration_factor x carrier rate
+  (L/ha) x area_treated / 100. Use total_quantity only when no rate is recorded, apportioned to units
+  by area treated.'
+- Express totals in kg for products measured by mass and L for products measured by volume.
+- Sum per wine company block and product over vintage 2026.
+scoring:
+- Each (block, product) total within 1% of the expected value.
+- No (block, product) pairs missing or extra.
+expected_answer:
+  store: hidden
+  key: spray-diary-01/ground_truth/expected_answers.json#task_1_total_product_per_block
+answer_schema: answer.schema.json

@@ -35,4 +35,4 @@ All three exports describe the same applications, so they should give the same a
 
 ## Ground truth and generator
 
-The ground truth (expected answers and the underlying records) and the deterministic generator are held privately by More Than Machines, so that agents under test cannot read the answers. Scores are produced against them by the scenario runner.
+The ground truth (expected answers and the underlying records) and the deterministic generator are held privately by More Than Machines, so that agents under test cannot read the answers. They are not in this repository. Scores are produced against them by the scenario runner. The downstream tasks that use this fixture set are defined in `industries/viticulture/tasks/`.

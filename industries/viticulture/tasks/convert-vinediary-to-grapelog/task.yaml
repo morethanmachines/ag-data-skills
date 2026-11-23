@@ -1,0 +1,29 @@
+# Downstream task. The expected answer is held in the private hidden-fixtures store and is
+# never committed to this repository.
+task_version: 1
+id: convert-vinediary-to-grapelog
+industry: viticulture
+fixture_set: spray-diary-01
+spec: viticulture/spray-diary
+question: Convert the VineDiary records into the GrapeLog layout so the wine company can load them.
+inputs:
+- fixtures/spray-diary-01/exports/vinediary_export_2025-26.csv
+- fixtures/spray-diary-01/exports/grapelog_export_2025-26.csv
+- fixtures/spray-diary-01/reference/vineyard_blocks.geojson
+- fixtures/spray-diary-01/reference/product_register.csv
+method:
+- Map the VineDiary export to shared/spray-diary with the viticulture profile.
+- Learn the GrapeLog layout from the GrapeLog export's shape (columns, one row per block per application,
+  up to two products per row, rates per hectare, total water per block, wine company block codes).
+- 'Write one GrapeLog row per application event and block from the mapped records: convert rates to per-hectare,
+  water to total litres for the block area, and block names to wine company codes.'
+- Report anything that cannot be carried across (for example registration numbers, which GrapeLog has
+  no column for).
+scoring:
+- Rows match the GrapeLog export on Applied (date and time), Block, product, rate per ha (within 0.5%),
+  unit and Water (L) (within 1 L).
+- Row count matches.
+expected_answer:
+  store: hidden
+  key: spray-diary-01/ground_truth/expected_answers.json#task_3_conversion
+answer_schema: answer.schema.json

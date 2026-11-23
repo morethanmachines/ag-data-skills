@@ -65,5 +65,5 @@ Success is measured, not asserted. The commons is working if specifications conv
 - `docs/OVERVIEW.md`: this document.
 - `docs/IMPLEMENTATION_PLAN.md`: the detailed build plan.
 - `docs/scenarios/`: test scenarios and prompts.
-- `test-data/`: synthetic datasets for the scenarios (viticulture and grains).
+- `fixtures/`: synthetic datasets for the scenarios (viticulture and grains).
 - `skills/ag-data-commons/SKILL.md`: a first draft of the core skill. The rest of the pack is specified in the implementation plan.

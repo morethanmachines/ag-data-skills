@@ -21,7 +21,7 @@ The first shared specification is a general, industry-neutral spray diary, devel
 - [Overview](docs/OVERVIEW.md): the idea, why it is difficult, why it is important, and how success will be measured.
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md): the build specification.
 - [Scenarios](docs/scenarios/): test scenarios for viticulture and grains.
-- [Test data](test-data/): synthetic datasets. Everything in them is fictional.
+- [Fixtures](fixtures/): synthetic datasets. Everything in them is fictional.
 
 ## Installing (once Phase 0 is released)
 

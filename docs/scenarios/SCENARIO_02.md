@@ -1,6 +1,6 @@
 # Scenario 02: grains spray records against the shared spec
 
-**Dataset:** `test-data/spray-diary-02`
+**Dataset:** `fixtures/spray-diary-02`
 **Spec under test:** the shared spray diary spec, after Scenario 01 has produced it and its viticulture profile
 
 ## Purpose

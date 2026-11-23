@@ -1,6 +1,6 @@
 # Scenario 01: three spray diaries, one season
 
-**Dataset:** `test-data/spray-diary-01`
+**Dataset:** `fixtures/spray-diary-01`
 **Spec under test:** the reference spray diary spec (Wine Australia, 2023), at `https://github.com/morethanmachines/project-harmony`
 
 ## Purpose

@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/grains/tasks/convert-contractor-to-paddockbook/answer.schema.json",
+  "title": "Farm software rows",
+  "description": "The converted CSV, read as one object per row keyed by column header. The deliverable is a CSV with exactly these columns in this order.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "Date",
+      "Time",
+      "Paddock",
+      "Area Sprayed (ha)",
+      "Product",
+      "Rate",
+      "Rate Unit",
+      "Water (L/ha)"
+    ],
+    "properties": {
+      "Job ID": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Date": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Time": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Paddock": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Crop": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Area Sprayed (ha)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Reg No": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Rate": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Rate Unit": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Water (L/ha)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Method": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Crop Stage": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Delta T": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Wind (km/h)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Wind Dir": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Temp (C)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "RH (%)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Applied By": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Comments": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "x-cp-csv-columns": [
+    "Job ID",
+    "Date",
+    "Time",
+    "Paddock",
+    "Crop",
+    "Area Sprayed (ha)",
+    "Product",
+    "Reg No",
+    "Rate",
+    "Rate Unit",
+    "Water (L/ha)",
+    "Method",
+    "Crop Stage",
+    "Delta T",
+    "Wind (km/h)",
+    "Wind Dir",
+    "Temp (C)",
+    "RH (%)",
+    "Applied By",
+    "Comments"
+  ]
+}

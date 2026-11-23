@@ -1,0 +1,35 @@
+# Downstream task. The expected answer is held in the private hidden-fixtures store and is
+# never committed to this repository.
+task_version: 1
+id: product-totals-per-paddock
+industry: grains
+fixture_set: spray-diary-02
+spec: shared/spray-diary
+question: What was the total quantity of each product applied to each paddock this season?
+inputs:
+- fixtures/spray-diary-02/exports/paddockbook_spray_records_2025.csv
+- fixtures/spray-diary-02/exports/sprayjob_contractor_jobs_2025.json
+- fixtures/spray-diary-02/exports/spray_records_by_paddock_2025.xlsx
+- fixtures/spray-diary-02/reference/paddock_register.csv
+- fixtures/spray-diary-02/reference/product_register.csv
+- fixtures/spray-diary-02/reference/paddocks.geojson
+method:
+- Map every export to shared/spray-diary (with a grains profile if one exists).
+- Resolve contractor paddock codes to paddock names with the paddock register.
+- Resolve each product to its registration number using the product register.
+- The contractor export repeats jobs that are also in the other two sources. De-duplicate application
+  events; do not add sources together.
+- 'For each product application on each management unit, compute the amount applied from the rate and
+  its basis (shared/specs/spray-diary/README.md): per_hectare: rate x area_treated; per_100L_tank: rate
+  x carrier rate (L/ha) x area_treated / 100; per_100L_dilute: rate x concentration_factor x carrier rate
+  (L/ha) x area_treated / 100. Use total_quantity only when no rate is recorded, apportioned to units
+  by area treated. Use the area actually treated, not the paddock area.'
+- Express totals in kg for products measured by mass and L for products measured by volume.
+- Sum per paddock and product over the 2025 season.
+scoring:
+- Each (paddock, product) total within 1% of the expected value.
+- No double counting of contractor jobs; no pairs missing or extra.
+expected_answer:
+  store: hidden
+  key: spray-diary-02/ground_truth/expected_answers.json#task_1_total_product_per_paddock
+answer_schema: answer.schema.json

@@ -12,13 +12,13 @@ It is being started by More Than Machines (Andrew Skinner), an AI research lab w
 2. `docs/IMPLEMENTATION_PLAN.md`: the build specification. This is the source of truth for what to build. Where it says MUST, it is a hard requirement.
 3. `docs/scenarios/`: Scenario 01 (viticulture) and Scenario 02 (grains).
 4. `skills/ag-data-commons/SKILL.md`: first draft of the core skill.
-5. `test-data/`: two synthetic datasets (agent-visible exports and reference files only).
+5. `fixtures/`: two synthetic datasets (agent-visible exports and reference files only).
 
 ## Current state
 
 - No git repository yet, and nothing on GitHub. Leftovers that can be deleted: `publish.sh`, `ag-data-skills-initial.tgz` and the `Claude outputs/` folder (all git-ignored).
 - `private/` holds the ground truth and generators for both datasets, plus `ag-data-skills-private.tgz` (delete it once you have confirmed the extracted files are present). `private/` is git-ignored and MUST never be committed or pushed to the public repository, because agents under test must not be able to read the answers. In the plan these belong in a separate private repository (`morethanmachines/ag-data-skills-hidden`); create that when the hidden-fixture workflows need it.
-- The generators write `exports/`, `reference/` and `ground_truth/` next to themselves. The public `test-data/` copies were produced by them. To run a `check_exports.py`, run its generator in a scratch copy first, or point it at the matching public `exports/` and `reference/`.
+- The generators write `exports/`, `reference/` and `ground_truth/` next to themselves. The public `fixtures/` copies were produced by them. To run a `check_exports.py`, run its generator in a scratch copy first, or point it at the matching public `exports/` and `reference/`.
 - The reference spec the shared spray diary is generalised from is `https://github.com/morethanmachines/project-harmony` (spray diary JSON Schema, block format, grapevine variety list, E-L growth stages). Use it loosely, as described in section 13 of the plan. Do not call this project, or anything in it, "Project Harmony".
 
 ## What to do first

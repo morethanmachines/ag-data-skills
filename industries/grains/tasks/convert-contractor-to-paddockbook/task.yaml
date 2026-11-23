@@ -1,0 +1,29 @@
+# Downstream task. The expected answer is held in the private hidden-fixtures store and is
+# never committed to this repository.
+task_version: 1
+id: convert-contractor-to-paddockbook
+industry: grains
+fixture_set: spray-diary-02
+spec: shared/spray-diary
+question: Convert the contractor's jobs into the farm software's layout so they can be checked against
+  what is already recorded there.
+inputs:
+- fixtures/spray-diary-02/exports/paddockbook_spray_records_2025.csv
+- fixtures/spray-diary-02/exports/sprayjob_contractor_jobs_2025.json
+- fixtures/spray-diary-02/reference/paddock_register.csv
+- fixtures/spray-diary-02/reference/product_register.csv
+method:
+- Map the contractor export to shared/spray-diary.
+- Learn the farm software layout from the farm software export's shape (one row per paddock per product,
+  rates per hectare in L/ha, mL/ha or g/ha, water in L/ha, area sprayed in ha).
+- 'Write one row per job, paddock and product: convert acres to hectares, job totals to per-hectare rates
+  over the total area sprayed, contractor paddock codes to names, and wind to km/h.'
+- Report anything that cannot be carried across.
+scoring:
+- Rows match the contractor rows of the farm software export on date, time, paddock, area sprayed (within
+  0.1 ha), product (by registration number), rate (within 0.5%, after unit conversion) and water (L/ha).
+- Row count matches.
+expected_answer:
+  store: hidden
+  key: spray-diary-02/ground_truth/expected_answers.json#task_3_conversion
+answer_schema: answer.schema.json

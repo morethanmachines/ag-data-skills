@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/grains/tasks/product-totals-per-paddock/answer.schema.json",
+  "title": "Product totals per paddock",
+  "description": "One entry per paddock and product.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "paddock",
+      "registration_number",
+      "product_name",
+      "total",
+      "unit"
+    ],
+    "properties": {
+      "paddock": {
+        "type": "string"
+      },
+      "registration_number": {
+        "type": "string"
+      },
+      "product_name": {
+        "type": "string"
+      },
+      "total": {
+        "type": "number",
+        "minimum": 0
+      },
+      "unit": {
+        "enum": [
+          "kg",
+          "L"
+        ]
+      }
+    },
+    "additionalProperties": true
+  }
+}

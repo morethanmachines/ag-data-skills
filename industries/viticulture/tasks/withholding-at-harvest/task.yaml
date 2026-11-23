@@ -1,0 +1,30 @@
+# Downstream task. The expected answer is held in the private hidden-fixtures store and is
+# never committed to this repository.
+task_version: 1
+id: withholding-at-harvest
+industry: viticulture
+fixture_set: spray-diary-01
+spec: viticulture/spray-diary
+question: Will any block breach a withholding period at its planned harvest date?
+inputs:
+- fixtures/spray-diary-01/exports/vinediary_export_2025-26.csv
+- fixtures/spray-diary-01/exports/grapelog_export_2025-26.csv
+- fixtures/spray-diary-01/exports/spray_diary_2025-26.xlsx
+- fixtures/spray-diary-01/reference/vineyard_blocks.geojson
+- fixtures/spray-diary-01/reference/product_register.csv
+- fixtures/spray-diary-01/reference/harvest_dates.csv
+method:
+- Map the records as for product-totals-per-block and attach each product's grape withholding period (days)
+  from the product register as a restriction (type withholding_period, applies_to harvest, source label).
+- For each wine company block, find the last application date (local date) of each product.
+- days_before_harvest = planned harvest date minus last application date, in whole days.
+- A product breaches if days_before_harvest is less than its withholding period. A block is compliant
+  if no product breaches.
+scoring:
+- Every block present with the correct compliant value.
+- Every breach found with the correct product, last application date and days before harvest; no false
+  positives.
+expected_answer:
+  store: hidden
+  key: spray-diary-01/ground_truth/expected_answers.json#task_2_withholding_compliance
+answer_schema: answer.schema.json

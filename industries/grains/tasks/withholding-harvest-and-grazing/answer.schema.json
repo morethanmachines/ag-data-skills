@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/grains/tasks/withholding-harvest-and-grazing/answer.schema.json",
+  "title": "Harvest and grazing withholding per paddock",
+  "description": "One entry per paddock.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "paddock",
+      "planned_harvest",
+      "harvest_compliant",
+      "violations",
+      "earliest_grazing_date"
+    ],
+    "properties": {
+      "paddock": {
+        "type": "string"
+      },
+      "planned_harvest": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+      },
+      "harvest_compliant": {
+        "type": "boolean"
+      },
+      "violations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "registration_number",
+            "product_name",
+            "last_application",
+            "harvest_withholding_days",
+            "days_before_harvest"
+          ],
+          "properties": {
+            "registration_number": {
+              "type": "string"
+            },
+            "product_name": {
+              "type": "string"
+            },
+            "last_application": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "harvest_withholding_days": {
+              "type": "integer"
+            },
+            "days_before_harvest": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "earliest_grazing_date": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+      }
+    },
+    "additionalProperties": true
+  }
+}

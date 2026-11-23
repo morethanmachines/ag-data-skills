@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/industries/viticulture/tasks/convert-vinediary-to-grapelog/answer.schema.json",
+  "title": "GrapeLog rows",
+  "description": "The converted CSV, read as one object per row keyed by GrapeLog column header. The deliverable is a CSV with exactly these columns in this order.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "Vintage",
+      "Applied",
+      "Block",
+      "Product 1",
+      "Product 1 Rate",
+      "Product 1 Unit",
+      "Water (L)"
+    ],
+    "properties": {
+      "Vintage": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Applied": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Block": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Operator": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "EL": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 1": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 1 Rate": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 1 Unit": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 2": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 2 Rate": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Product 2 Unit": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Water (L)": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Wind": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Temp": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Humidity": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "Comment": {
+        "type": [
+          "string",
+          "number",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "x-cp-csv-columns": [
+    "Vintage",
+    "Applied",
+    "Block",
+    "Operator",
+    "EL",
+    "Product 1",
+    "Product 1 Rate",
+    "Product 1 Unit",
+    "Product 2",
+    "Product 2 Rate",
+    "Product 2 Unit",
+    "Water (L)",
+    "Wind",
+    "Temp",
+    "Humidity",
+    "Comment"
+  ]
+}
