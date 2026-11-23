@@ -1,0 +1,78 @@
+# Privacy backstop (implementation plan, 6). Scans the files a pull request adds or changes
+# for real farm or personal data. On failure it comments (values masked), closes the pull
+# request and deletes its branch. It runs on pull_request_target so it can close pull
+# requests from forks; it therefore never executes code from the pull request: the ci
+# module and the rules come from the base branch, and the pull request is read as data.
+name: scrub
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  scrub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the base branch (trusted code and rules)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check out the pull request as data
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: .pr
+          persist-credentials: false
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ci/go.mod
+          cache-dependency-path: ci/go.sum
+      - name: List changed files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
+            --jq '.[] | select(.status != "removed") | .filename' > "$RUNNER_TEMP/files.txt"
+          echo "changed files: $(wc -l < "$RUNNER_TEMP/files.txt")"
+      - name: Scrub
+        id: scrub
+        run: |
+          set +e
+          go -C ci run . scrub --root "$GITHUB_WORKSPACE/.pr" --rules "$GITHUB_WORKSPACE" \
+            --json "$RUNNER_TEMP/scrub.json" "@$RUNNER_TEMP/files.txt" | tee "$RUNNER_TEMP/scrub.txt"
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Close the pull request
+        if: steps.scrub.outputs.code == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          {
+            echo "The privacy check found what looks like real farm or personal data, so this pull request has been closed automatically and its branch deleted. Values are masked below."
+            echo
+            echo '```'
+            head -n 50 "$RUNNER_TEMP/scrub.txt"
+            echo '```'
+            echo
+            echo "Contributions must contain structure and synthetic data only (governance/synthetic.yaml): ABNs and ACNs that fail their checksums, fictional names, coordinates inside a designated offshore test area. Remove the data, then open a new pull request from a fresh branch."
+          } > "$RUNNER_TEMP/comment.md"
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/comment.md"
+          gh pr close "$PR" --repo "$GITHUB_REPOSITORY"
+          if [ "$HEAD_REPO" = "$GITHUB_REPOSITORY" ]; then
+            gh api -X DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/${HEAD_REF}" || true
+          fi
+          exit 1
+      - name: Fail on scrub error
+        if: steps.scrub.outputs.code != '0' && steps.scrub.outputs.code != '1'
+        run: exit 1

@@ -17,7 +17,7 @@ type Config struct {
 		OverlapThreshold  float64 `yaml:"overlap_threshold"`
 	} `yaml:"drafts"`
 	Evidence struct {
-		MinTierForSpecChange             string `yaml:"min_tier_for_spec_change"`
+		MinTierForSpecChange              string `yaml:"min_tier_for_spec_change"`
 		MinTierForCrosswalkRequiredFields string `yaml:"min_tier_for_crosswalk_required_fields"`
 	} `yaml:"evidence"`
 	Privacy struct {

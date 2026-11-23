@@ -1,0 +1,79 @@
+# Builds the bundled snapshot of the commons into skills/ag-data-commons/snapshot/
+# (implementation plan, 4.5), zips each skill and publishes a GitHub release. Runs on
+# every version tag, monthly, and on demand.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_type == 'tag' && github.ref || 'main' }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ci/go.mod
+          cache-dependency-path: ci/go.sum
+      - name: Check the repository
+        run: go -C ci run . checks
+      - name: Refresh the snapshot on main (scheduled and manual runs)
+        if: github.ref_type != 'tag'
+        id: refresh
+        run: |
+          go -C ci run . build-index
+          go -C ci run . snapshot
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Refresh the bundled snapshot of the commons"
+            git push origin HEAD:main
+          fi
+          echo "tag=snapshot-$(date -u +%Y%m%d)" >> "$GITHUB_OUTPUT"
+      - name: Verify the tagged snapshot is current (tag runs)
+        if: github.ref_type == 'tag'
+        run: |
+          go -C ci run . snapshot --out dist/verify/snapshot
+          diff -r --exclude SNAPSHOT.json skills/ag-data-commons/snapshot dist/verify/snapshot
+      - name: Zip each skill
+        run: |
+          mkdir -p dist/zips
+          for d in skills/*/; do
+            name=$(basename "$d")
+            (cd skills && zip -qr "../dist/zips/${name}.zip" "$name" -x '*/.DS_Store')
+          done
+          ls -l dist/zips
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_type == 'tag' && github.ref_name || steps.refresh.outputs.tag }}
+          PRERELEASE: ${{ github.ref_type == 'tag' && 'false' || 'true' }}
+        run: |
+          commit=$(jq -r .commit skills/ag-data-commons/snapshot/SNAPSHOT.json)
+          {
+            echo "Skill pack with the bundled snapshot of the commons built from ${commit}."
+            echo
+            echo "Install in Claude Code or other agents with \`npx skills@latest add morethanmachines/ag-data-skills\`, or as a Claude Code plugin (see the README). For the Claude app and other chat products, upload the skill zips below: start with ag-data-commons.zip and the task skills you need."
+          } > dist/notes.md
+          flags=""
+          if [ "$PRERELEASE" = "true" ]; then flags="--prerelease --target main"; fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/zips/*.zip --clobber
+          else
+            gh release create "$TAG" dist/zips/*.zip --title "$TAG" --notes-file dist/notes.md $flags
+          fi

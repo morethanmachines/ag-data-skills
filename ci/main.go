@@ -134,7 +134,8 @@ func runChecks(args []string) (int, error) {
 
 func runScrub(args []string) (int, error) {
 	fs := flag.NewFlagSet("scrub", flag.ExitOnError)
-	root := fs.String("root", "", "repository root")
+	root := fs.String("root", "", "repository root holding the content to scan")
+	rules := fs.String("rules", "", "repository root whose governance rules to apply (default: --root); in pull_request_target workflows this is the trusted base checkout")
 	base := fs.String("base", "", "scan files changed since this ref")
 	all := fs.Bool("all", false, "scan every file in the repository")
 	out := fs.String("json", "", "write findings as JSON to this file")
@@ -143,12 +144,28 @@ func runScrub(args []string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	s, err := scrub.NewScanner(r)
+	rr := r
+	if *rules != "" {
+		if rr, err = repo.Find(*rules); err != nil {
+			return 0, err
+		}
+	}
+	s, err := scrub.NewScanner(rr)
 	if err != nil {
 		return 0, err
 	}
 	var files []string
 	switch {
+	case len(fs.Args()) == 1 && strings.HasPrefix(fs.Arg(0), "@"):
+		raw, rerr := os.ReadFile(strings.TrimPrefix(fs.Arg(0), "@"))
+		if rerr != nil {
+			return 0, rerr
+		}
+		for _, l := range strings.Split(string(raw), "\n") {
+			if l = strings.TrimSpace(l); l != "" && !repo.IsSkipped(l) {
+				files = append(files, l)
+			}
+		}
 	case len(fs.Args()) > 0:
 		files = fs.Args()
 	case *base != "":

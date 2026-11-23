@@ -1,0 +1,42 @@
+# Deterministic gate for every contribution (implementation plan, 7.2). It runs the ci
+# module from the base branch against the pull request's files. No step waits for a person.
+name: checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ci/go.mod
+          cache-dependency-path: ci/go.sum
+      - name: Unit tests
+        run: go -C ci test ./...
+      - name: Repository checks
+        if: github.event_name != 'pull_request'
+        run: go -C ci run . checks
+      - name: Pull request checks
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr-body.md"
+          go -C ci run . checks --base "$BASE_SHA" --body-file "$RUNNER_TEMP/pr-body.md" --json "$RUNNER_TEMP/findings.json"
+      - name: Generated files are current
+        if: github.event_name != 'pull_request'
+        run: go -C ci run . build-index --check || echo "::notice::build-index will regenerate these on main"

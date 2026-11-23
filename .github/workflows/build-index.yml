@@ -1,0 +1,41 @@
+# Regenerates the indexes, GOVERNANCE.md and changelogs on every push to main
+# (implementation plan, 4.4), and fills in decision record commit hashes. Commits made with
+# the workflow token do not trigger further workflow runs.
+name: build-index
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ci/go.mod
+          cache-dependency-path: ci/go.sum
+      - name: Build indexes
+        run: go -C ci run . build-index --fill-commits
+      - name: Commit if anything changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A INDEX.md GOVERNANCE.md index industries shared records
+            git commit -m "Regenerate indexes, governance page and changelogs"
+            git push
+          else
+            echo "Generated files are up to date."
+          fi
