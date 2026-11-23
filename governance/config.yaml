@@ -69,6 +69,7 @@ snapshot:
     - industries/
     - codelists/
     - external/registry.yaml
+    - governance/config.yaml
     - governance/evidence-tiers.yaml
     - governance/industries.yaml
     - governance/synthetic.yaml

@@ -16,14 +16,15 @@ It is being started by More Than Machines (Andrew Skinner), an AI research lab w
 
 ## Current state
 
-- No git repository yet, and nothing on GitHub. Leftovers that can be deleted: `publish.sh`, `ag-data-skills-initial.tgz` and the `Claude outputs/` folder (all git-ignored).
-- `private/` holds the ground truth and generators for both datasets, plus `ag-data-skills-private.tgz` (delete it once you have confirmed the extracted files are present). `private/` is git-ignored and MUST never be committed or pushed to the public repository, because agents under test must not be able to read the answers. In the plan these belong in a separate private repository (`morethanmachines/ag-data-skills-hidden`); create that when the hidden-fixture workflows need it.
+- Public repository: `morethanmachines/ag-data-skills`. Phase 0 of the plan is built: commons layout, governance, the shared spray diary 0.1.0 draft, the viticulture profile and vineyard block draft, code lists, fixtures and tasks, the `ci/` Go module, the `checks`, `scrub`, `build-index` and `release` workflows, and skill pack v0.1. Decisions taken while building it are in `docs/decisions/`; deferred work is in GitHub issues.
+- `private/` holds the ground truth and generators for both datasets. It is git-ignored and MUST never be committed or pushed to the public repository, because agents under test must not be able to read the answers. A local pre-commit hook and the `hidden-fixtures` check both guard against it. In the plan these belong in a separate private repository (`morethanmachines/ag-data-skills-hidden`); create that when the hidden-fixture workflows need it.
 - The generators write `exports/`, `reference/` and `ground_truth/` next to themselves. The public `fixtures/` copies were produced by them. To run a `check_exports.py`, run its generator in a scratch copy first, or point it at the matching public `exports/` and `reference/`.
-- The reference spec the shared spray diary is generalised from is `https://github.com/morethanmachines/project-harmony` (spray diary JSON Schema, block format, grapevine variety list, E-L growth stages). Use it loosely, as described in section 13 of the plan. Do not call this project, or anything in it, "Project Harmony".
+- The reference spec the shared spray diary is generalised from is `https://github.com/morethanmachines/project-harmony` (spray diary JSON Schema, block format, grapevine variety list, E-L growth stages). Use it loosely, as described in section 13 of the plan. Do not call this project, or anything in it, "Project Harmony". Its licence is unconfirmed, so nothing is copied from it yet.
+- Run the checks locally with `go -C ci test ./...`, `go -C ci run . checks` and `go -C ci run . scrub --all`. Regenerate indexes with `go -C ci run . build-index` and the snapshot with `go -C ci run . snapshot`.
 
-## What to do first
+## Phase 0 build order (done)
 
-Phase 0 of the plan ("Foundations, ready to use"), in this order:
+Phase 0 of the plan ("Foundations, ready to use") was built in this order:
 
 1. `git init -b main`, first commit of the current files (not `private/`), and create the public repository with `gh repo create morethanmachines/ag-data-skills --public --source . --push`. Confirm with Andrew before creating it.
 2. Build the commons layout (plan section 2), governance files, `governance/industries.yaml`.

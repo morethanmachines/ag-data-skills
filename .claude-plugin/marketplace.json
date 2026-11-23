@@ -1,0 +1,18 @@
+{
+  "name": "ag-data-skills",
+  "owner": {
+    "name": "More Than Machines",
+    "url": "https://github.com/morethanmachines"
+  },
+  "metadata": {
+    "description": "Ag Data Skills: agent skills for Australian farm data."
+  },
+  "plugins": [
+    {
+      "name": "ag-data-skills",
+      "source": "./",
+      "description": "Combine spray records, check withholding periods and convert records between formats, via an open commons of farm data specifications.",
+      "version": "0.1.0"
+    }
+  ]
+}
