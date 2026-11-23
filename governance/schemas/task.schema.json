@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/task.schema.json",
+  "title": "Downstream task",
+  "description": "A realistic question answered from mapped data. Expected answers are held in the private hidden-fixtures store, never in this repository.",
+  "type": "object",
+  "required": ["task_version", "id", "industry", "fixture_set", "question", "inputs", "method", "answer_schema", "scoring", "expected_answer"],
+  "properties": {
+    "task_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "industry": { "type": "string" },
+    "fixture_set": { "type": "string" },
+    "question": { "type": "string" },
+    "inputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "spec": { "type": "string" },
+    "method": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "The query, written as ordered steps over spec properties so any agent computes it the same way." },
+    "answer_schema": { "type": "string", "description": "Path, relative to the task folder, of the JSON Schema an answer must validate against." },
+    "scoring": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "expected_answer": {
+      "type": "object",
+      "required": ["store", "key"],
+      "properties": { "store": { "const": "hidden" }, "key": { "type": "string" } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

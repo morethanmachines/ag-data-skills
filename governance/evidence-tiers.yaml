@@ -1,0 +1,30 @@
+# Evidence tiers. Agents record a tier and a reference for every mapped field and semantic
+# attribute; they never write a numeric confidence. A field's score is its tier weight; a
+# record's score is the minimum over its required fields and required semantics.
+# Weights are recalibrated from correction signals in phase 3 (at most 0.05 per cycle,
+# keeping the order of tiers).
+tiers:
+  - id: E5
+    name: Stated
+    use_when: The user said it in the session.
+    weight: 1.00
+  - id: E4
+    name: Machine metadata
+    use_when: A machine-readable attribute says so (schema, file metadata, API definition).
+    weight: 0.95
+  - id: E3
+    name: Explicit label
+    use_when: A header, legend or accompanying document says so.
+    weight: 0.85
+  - id: E2
+    name: Contextual inference
+    use_when: Inferred from context (system identity, value ranges, region).
+    weight: 0.60
+  - id: E1
+    name: Practice assumption
+    use_when: Assumed from typical practice.
+    weight: 0.35
+  - id: E0
+    name: Unknown
+    use_when: No evidence.
+    weight: 0.00

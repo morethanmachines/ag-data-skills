@@ -1,0 +1,123 @@
+# External standards, vocabularies and registers the commons wraps rather than redefines.
+# Specs reference entries here by id in x-cp-external-basis. Adding an entry is an
+# external_standard contribution. licence_confirmed: false means the terms for reuse have
+# not yet been checked; do not copy content from such a source into the commons.
+registry_version: 1
+entries:
+  - id: reference-spray-diary-2023
+    name: Australian spray diary specification and row/block id specification (reference spec)
+    kind: reference_spec
+    publisher: More Than Machines, for Wine Australia (project WAC 2312, 2023)
+    url: https://github.com/morethanmachines/project-harmony
+    licence: none stated in the repository
+    licence_confirmed: false
+    industries: [viticulture]
+    use: Loose structural reference for shared/specs/spray-diary and industries/viticulture/specs/vineyard-block. Nothing is copied from it until its licence is confirmed (KNOWN_ISSUES, issue tracker).
+  - id: grapevine-variety-list
+    name: Australian grapevine variety list with Wine Australia codes and synonyms
+    kind: code_list
+    publisher: Wine Australia
+    url: https://github.com/morethanmachines/project-harmony
+    licence: unconfirmed
+    licence_confirmed: false
+    industries: [viticulture]
+    use: Intended source for a viticulture variety code list once reuse terms are confirmed. Until then variety is free text plus an optional code.
+  - id: el-growth-stages
+    name: Modified Eichhorn-Lorenz (E-L) system of grapevine growth stages
+    kind: scale
+    publisher: Australian Journal of Grape and Wine Research
+    citation: "Coombe, B.G. (1995) Growth stages of the grapevine: adoption of a system for identifying grapevine growth stages. Australian Journal of Grape and Wine Research 1, 104-110."
+    url: https://www.awri.com.au/industry_support/viticulture/grapevine-growth-and-development/
+    licence: unconfirmed for the stage descriptions
+    licence_confirmed: false
+    industries: [viticulture]
+    use: Crop stage scale "E-L" (integer stage numbers 1 to 47). Stage descriptions are not reproduced until reuse terms are confirmed.
+  - id: zadoks
+    name: Zadoks decimal code for the growth stages of cereals
+    kind: scale
+    citation: "Zadoks, J.C., Chang, T.T. and Konzak, C.F. (1974) A decimal code for the growth stages of cereals. Weed Research 14, 415-421."
+    url: https://doi.org/10.1111/j.1365-3180.1974.tb01084.x
+    licence: not applicable (the scale is referenced by name and stage number only)
+    industries: [grains]
+    use: Crop stage scale "Zadoks" (stage numbers 0 to 99).
+  - id: bbch
+    name: BBCH scale of growth stages of mono- and dicotyledonous plants
+    kind: scale
+    citation: "Meier, U. (ed.) (2001) Growth stages of mono- and dicotyledonous plants. BBCH Monograph, 2nd edition. Federal Biological Research Centre for Agriculture and Forestry."
+    url: https://www.julius-kuehn.de/en/
+    licence: not applicable (the scale is referenced by name and stage number only)
+    industries: [grains, horticulture, cotton]
+    use: Crop stage scale "BBCH" (stage numbers 0 to 99).
+  - id: ucum
+    name: Unified Code for Units of Measure (UCUM)
+    kind: standard
+    publisher: Regenstrief Institute
+    url: https://ucum.org
+    licence: UCUM terms of use (free use of the codes)
+    industries: []
+    use: Unit codes in codelists/units and x-cp-unit-system.
+  - id: apvma-register
+    name: APVMA Public Chemical Registration Information System (PubCRIS)
+    kind: register
+    publisher: Australian Pesticides and Veterinary Medicines Authority
+    url: https://apvma.gov.au
+    licence: see publisher
+    industries: []
+    use: Identifier scheme "APVMA" for product registration numbers and permit numbers.
+  - id: iana-tz
+    name: IANA Time Zone Database
+    kind: register
+    publisher: Internet Assigned Numbers Authority
+    url: https://www.iana.org/time-zones
+    licence: public domain
+    industries: []
+    use: Timezone identifiers (for example Australia/Adelaide).
+  - id: geojson
+    name: The GeoJSON Format (RFC 7946)
+    kind: standard
+    publisher: IETF
+    url: https://datatracker.ietf.org/doc/html/rfc7946
+    licence: IETF Trust
+    industries: []
+    use: Geometry of management units, WGS84 longitude and latitude.
+  - id: abn
+    name: Australian Business Number
+    kind: register
+    publisher: Australian Business Register
+    url: https://abr.gov.au
+    licence: see publisher
+    industries: []
+    use: Identifier scheme "ABN" for businesses.
+  - id: wine-australia-gi
+    name: Wine Australia geographical indications (GI) register
+    kind: register
+    publisher: Wine Australia
+    url: https://www.wineaustralia.com
+    licence: CC-BY 4.0 Australia (as stated in the implementation plan; to be confirmed)
+    licence_confirmed: false
+    industries: [viticulture]
+    use: Region identifiers for vineyard blocks (not yet used by any spec).
+  - id: iso-11783
+    name: ISO 11783 (ISOBUS), including the task data exchange format
+    kind: standard
+    publisher: ISO
+    url: https://www.iso.org/standard/57556.html
+    licence: ISO copyright (referenced only)
+    industries: [grains, cotton, sugarcane]
+    use: Candidate external basis for machine application records; not yet wrapped.
+  - id: aggateway-adapt
+    name: AgGateway ADAPT framework
+    kind: standard
+    publisher: AgGateway
+    url: https://aggateway.org
+    licence: see publisher
+    industries: [grains]
+    use: Candidate external basis for field operation records; not yet wrapped.
+  - id: australian-farm-data-code
+    name: Australian Farm Data Code
+    kind: code_of_practice
+    publisher: National Farmers' Federation
+    url: https://nff.org.au
+    licence: see publisher
+    industries: []
+    use: Contribution is treated as a data-sharing decision consistent with this code.

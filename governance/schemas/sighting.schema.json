@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/sighting.schema.json",
+  "title": "Sighting",
+  "description": "A source shape seen in use. No data values.",
+  "type": "object",
+  "required": ["sighting_version", "fingerprint", "industries", "target_spec", "organisation", "model_family", "date"],
+  "properties": {
+    "sighting_version": { "const": 1 },
+    "fingerprint": { "$ref": "fingerprint.schema.json" },
+    "industries": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "target_spec": { "type": "string" },
+    "organisation": { "type": "string" },
+    "model_family": { "type": "string" },
+    "date": { "type": "string", "format": "date" }
+  },
+  "additionalProperties": false
+}

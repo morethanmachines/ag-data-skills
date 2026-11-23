@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/manifest.schema.json",
+  "title": "Contribution manifest",
+  "description": "The cp-contribution YAML block in a pull request body.",
+  "type": "object",
+  "required": ["cp-contribution"],
+  "properties": {
+    "cp-contribution": {
+      "type": "object",
+      "required": ["type", "model", "harness", "skill_version", "organisation", "summary"],
+      "properties": {
+        "type": { "enum": ["sighting", "spec_new", "spec_change", "profile_change", "codelist_change", "crosswalk_new", "crosswalk_update", "extension_usage", "external_standard", "downstream_task", "governance_change", "correction_signal"] },
+        "model": { "type": "string", "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._:-]+$" },
+        "harness": { "type": "string", "minLength": 1 },
+        "skill_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "organisation": { "type": "string", "minLength": 1 },
+        "owed_reviews_completed": { "type": "array", "items": { "type": "integer" } },
+        "summary": { "type": "string", "minLength": 1 },
+        "issue": { "type": "integer" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

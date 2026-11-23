@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/external-registry.schema.json",
+  "title": "External standards registry",
+  "type": "object",
+  "required": ["registry_version", "entries"],
+  "properties": {
+    "registry_version": { "const": 1 },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind", "url", "licence", "use"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "name": { "type": "string" },
+          "kind": { "enum": ["standard", "vocabulary", "register", "code_list", "reference_spec", "scale", "code_of_practice"] },
+          "publisher": { "type": "string" },
+          "url": { "type": "string" },
+          "citation": { "type": "string" },
+          "licence": { "type": "string" },
+          "licence_confirmed": { "type": "boolean" },
+          "industries": { "type": "array", "items": { "type": "string" } },
+          "use": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

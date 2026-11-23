@@ -1,0 +1,22 @@
+# Maps declared model identifiers (provider/model) to model families. Families are used to
+# require diversity in reviews. Model family is self-declared in v1 (see the plan, 7.3).
+# Patterns are matched against the lower-cased model id; the first match wins.
+families:
+  - id: anthropic
+    patterns: ["anthropic/*", "claude-*", "*claude*"]
+  - id: openai
+    patterns: ["openai/*", "gpt-*", "o1*", "o3*", "o4*", "codex*"]
+  - id: google
+    patterns: ["google/*", "gemini*", "gemma*"]
+  - id: meta
+    patterns: ["meta/*", "meta-llama/*", "llama*"]
+  - id: mistral
+    patterns: ["mistral/*", "mistralai/*", "mistral*", "mixtral*", "codestral*"]
+  - id: deepseek
+    patterns: ["deepseek/*", "deepseek*"]
+  - id: alibaba
+    patterns: ["alibaba/*", "qwen/*", "qwen*"]
+  - id: xai
+    patterns: ["xai/*", "grok*"]
+  - id: other
+    patterns: ["*"]

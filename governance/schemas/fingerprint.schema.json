@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/morethanmachines/ag-data-skills/main/governance/schemas/fingerprint.schema.json",
+  "title": "Source shape fingerprint",
+  "description": "Structural description of a source file shape. Contains no data values.",
+  "type": "object",
+  "required": ["fingerprint_version", "media_type", "layout", "columns"],
+  "properties": {
+    "fingerprint_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^fp-[0-9a-f]{12}$", "description": "fp- followed by the first 12 hex characters of the SHA-256 of the sorted, newline-joined normalised required column names. Computed by ci; agents may leave it out." },
+    "media_type": { "type": "string", "examples": ["text/csv", "application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"] },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "delimiter": { "type": "string" },
+        "encoding": { "type": "string" },
+        "header_rows": { "type": "integer", "minimum": 0 },
+        "title_rows": { "type": "integer", "minimum": 0 },
+        "merged_header": { "type": "boolean" },
+        "sheets": { "type": "string", "description": "How sheets are used, for example 'one sheet per management unit'." },
+        "record_path": { "type": "string", "description": "For JSON, the path to the repeating records, for example 'jobs[]'." },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "columns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": { "type": "string", "description": "Normalised column name: lower case, non-alphanumerics collapsed to single underscores, trimmed." },
+          "header": { "type": "string", "description": "Header text as it appears, if it carries meaning (units, for example). Never a data value." },
+          "type": { "enum": ["string", "integer", "number", "date", "time", "datetime", "boolean", "code", "object", "array"] },
+          "pattern": { "type": "string", "description": "Value pattern, for example DD/MM/YYYY or HH:MM. Never a value." },
+          "optional": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "system_hint": {
+      "type": "object",
+      "required": ["name", "evidence"],
+      "properties": { "name": { "type": "string" }, "evidence": { "$ref": "evidence.schema.json" } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
