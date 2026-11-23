@@ -29,10 +29,12 @@ SHOULD, or a resolution of something the plan leaves open, is written down with 
    labels. Rate basis is a fixed list with fixed denominators.
 8. **Times are local wall-clock plus optional IANA timezone and offset,** because every
    fixture export omits the timezone and a mapped record must be able to say so.
-9. **Generated files are committed by workflows** (`build-index`, `release`) using the
-   workflow token, which needs a bypass in the branch ruleset for GitHub Actions. The
-   ruleset also keeps a repository admin bypass until the Phase 2 merge workflow exists,
-   because otherwise nothing could be merged at all; an issue tracks removing it.
+9. **Branch protection is not yet applied** (issue #3). `build-index` and `release` commit
+   generated files to main with the workflow token, and an organisation ruleset cannot
+   list the GitHub Actions app as a bypass actor. Choosing the bot identity (a deploy key,
+   an organisation GitHub App, or no workflow commits at all) is left to More Than
+   Machines. Until the Phase 2 merge workflow exists, any ruleset also needs an admin
+   bypass, or nothing could merge.
 10. **Scrub uses `pull_request_target`** so it can close pull requests from forks. It runs
     only base-branch code and rules and reads the pull request as data. Values in its
     findings are masked so its comment never repeats leaked data. One path is exempt
