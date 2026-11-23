@@ -37,6 +37,11 @@ jobs:
         run: |
           printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr-body.md"
           go -C ci run . checks --base "$BASE_SHA" --body-file "$RUNNER_TEMP/pr-body.md" --json "$RUNNER_TEMP/findings.json"
+      - name: Privacy check (the scrub workflow closes failing pull requests)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: go -C ci run . scrub --base "$BASE_SHA"
       - name: Generated files are current
         if: github.event_name != 'pull_request'
         run: go -C ci run . build-index --check || echo "::notice::build-index will regenerate these on main"
