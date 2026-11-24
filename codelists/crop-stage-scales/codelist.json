@@ -2,7 +2,7 @@
   "id": "crop-stage-scales",
   "version": "0.1.0",
   "status": "draft",
-  "description": "Growth stage scales. The scales are referenced by name and stage number only.",
+  "description": "Growth stage scales a crop stage can be recorded against. The scales are referenced by name and stage number only.",
   "licence": "CC-BY-4.0",
   "provenance": [
     "bootstrap-0002"
