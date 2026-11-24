@@ -29,12 +29,13 @@ SHOULD, or a resolution of something the plan leaves open, is written down with 
    labels. Rate basis is a fixed list with fixed denominators.
 8. **Times are local wall-clock plus optional IANA timezone and offset,** because every
    fixture export omits the timezone and a mapped record must be able to say so.
-9. **Branch protection is not yet applied** (issue #3). `build-index` and `release` commit
-   generated files to main with the workflow token, and an organisation ruleset cannot
-   list the GitHub Actions app as a bypass actor. Choosing the bot identity (a deploy key,
-   an organisation GitHub App, or no workflow commits at all) is left to More Than
-   Machines. Until the Phase 2 merge workflow exists, any ruleset also needs an admin
-   bypass, or nothing could merge.
+9. **Branch protection uses a repository ruleset with a deploy key** (issue #3). Changes to
+   main must arrive as a pull request with the `checks` job passing, and main cannot be
+   deleted or force-pushed. An organisation ruleset cannot list the GitHub Actions app as a
+   bypass actor, so `build-index` and `release` push with a write deploy key held in the
+   `BOT_DEPLOY_KEY` secret, and the ruleset lets deploy keys past it. More Than Machines
+   created the key. Admins can also bypass until the Phase 2 merge workflow exists, or
+   nothing could merge; remove that bypass then.
 10. **Scrub uses `pull_request_target`** so it can close pull requests from forks. It runs
     only base-branch code and rules and reads the pull request as data. Values in its
     findings are masked so its comment never repeats leaked data. One path is exempt
