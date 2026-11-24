@@ -55,7 +55,7 @@
     {
       "kind": "codelist",
       "id": "codelists/crop-stage-scales",
-      "description": "Growth stage scales.",
+      "description": "Growth stage scales a crop stage can be recorded against.",
       "status": "draft",
       "version": "0.1.0",
       "path": "codelists/crop-stage-scales/codelist.json"
