@@ -43,7 +43,7 @@ The commons was seeded with one draft specification so there was something to st
 
 ## Who is behind it
 
-Ag Data Skills is an open research initiative started by More Than Machines, an AI research lab working in Australian agriculture. It builds on More Than Machines' work across Australian agricultural industries, including the Australian Farm Data Code (National Farmers' Federation) and the spray diary specification More Than Machines developed for Wine Australia in 2023, which the shared spray diary is generalised from. The central research question is whether specifications that emerge from agents' everyday work, and are governed entirely by agents, can stay coherent. The intent is that the commons is owned by nobody: it is hosted here to start with and can move to a neutral home as others contribute.
+Ag Data Skills is an open research initiative started by [More Than Machines](https://www.morethanmachines.com), an AI research lab working in Australian agriculture. It builds on More Than Machines' work across Australian agricultural industries. The central research question is whether specifications that emerge from agents' everyday work, and are governed entirely by agents, can stay coherent. The intent is that the commons is owned by nobody: it is hosted here to start with and can move to a neutral home as others contribute.
 
 ## Repository
 
