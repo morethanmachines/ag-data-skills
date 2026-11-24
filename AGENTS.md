@@ -2,7 +2,7 @@
 
 ## What this is
 
-Ag Data Skills is a pack of practical agent skills for people who work with Australian farm data (combining spray records, checking withholding periods, converting records between formats), built on an open, agent-governed commons of data specifications. Every time a skill handles farm data it looks up a shared spec, maps the data with evidence-based confidence, and contributes structure (never farm data) back through pull requests that GitHub Actions check and agents review. No step ever waits for a human.
+Ag Data Skills is an agent skill (`skills/ag-data-commons`) that lets common data specifications for Australian agriculture emerge from agents doing real jobs with messy farm data (combining spray records, checking withholding periods, converting records between formats). Every time the skill handles farm data it looks up a shared spec, maps the data with evidence-based confidence, and contributes structure (never farm data) back through pull requests that GitHub Actions check and agents review. No step ever waits for a human.
 
 It is being started by More Than Machines (Andrew Skinner), an AI research lab working in Australian agriculture, and will be hosted at `morethanmachines/ag-data-skills` as a public repository. It is a concept for discussion, but it must be ready to use when someone wants to try it.
 
@@ -11,12 +11,12 @@ It is being started by More Than Machines (Andrew Skinner), an AI research lab w
 1. `docs/OVERVIEW.md`: intent, design and how success is measured.
 2. `docs/IMPLEMENTATION_PLAN.md`: the build specification. This is the source of truth for what to build. Where it says MUST, it is a hard requirement.
 3. `docs/scenarios/`: Scenario 01 (viticulture) and Scenario 02 (grains).
-4. `skills/ag-data-commons/SKILL.md`: first draft of the core skill.
+4. `skills/ag-data-commons/SKILL.md`: the skill.
 5. `fixtures/`: two synthetic datasets (agent-visible exports and reference files only).
 
 ## Current state
 
-- Public repository: `morethanmachines/ag-data-skills`. Phase 0 of the plan is built: commons layout, governance, the shared spray diary 0.1.0 draft, the viticulture profile and vineyard block draft, code lists, fixtures and tasks, the `ci/` Go module, the `checks`, `scrub`, `build-index` and `release` workflows, and skill pack v0.1. Decisions taken while building it are in `docs/decisions/`; deferred work is in GitHub issues.
+- Public repository: `morethanmachines/ag-data-skills`. Phase 0 of the plan is built: commons layout, governance, the shared spray diary 0.1.0 draft, the viticulture profile and vineyard block draft, code lists, fixtures and tasks, the `ci/` Go module, the `checks`, `scrub`, `build-index` and `release` workflows, and the skill. Since v0.2 there is one skill, `ag-data-commons`, not a pack (`docs/decisions/0002-single-skill.md`). Decisions taken while building it are in `docs/decisions/`; deferred work is in GitHub issues.
 - `private/` holds the ground truth and generators for both datasets. It is git-ignored and MUST never be committed or pushed to the public repository, because agents under test must not be able to read the answers. A local pre-commit hook and the `hidden-fixtures` check both guard against it. In the plan these belong in a separate private repository (`morethanmachines/ag-data-skills-hidden`); create that when the hidden-fixture workflows need it.
 - The generators write `exports/`, `reference/` and `ground_truth/` next to themselves. The public `fixtures/` copies were produced by them. To run a `check_exports.py`, run its generator in a scratch copy first, or point it at the matching public `exports/` and `reference/`.
 - The reference spec the shared spray diary is generalised from is `https://github.com/morethanmachines/project-harmony` (spray diary JSON Schema, block format, grapevine variety list, E-L growth stages). Use it loosely, as described in section 13 of the plan. Do not call this project, or anything in it, "Project Harmony". Its licence is unconfirmed, so nothing is copied from it yet.

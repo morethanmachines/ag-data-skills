@@ -1,5 +1,5 @@
 # Builds the bundled snapshot of the commons into skills/ag-data-commons/snapshot/
-# (implementation plan, 4.5), zips each skill and publishes a GitHub release. Runs on
+# (implementation plan, 4.5), zips the skill and publishes a GitHub release. Runs on
 # every version tag, monthly, and on demand.
 name: release
 
@@ -70,7 +70,7 @@ jobs:
           {
             echo "Skill pack with the bundled snapshot of the commons built from ${commit}."
             echo
-            echo "Install in Claude Code or other agents with \`npx skills@latest add morethanmachines/ag-data-skills\`, or as a Claude Code plugin (see the README). For the Claude app and other chat products, upload the skill zips below: start with ag-data-commons.zip and the task skills you need."
+            echo "Install in Claude Code or other agents with \`npx skills@latest add morethanmachines/ag-data-skills\`, or as a Claude Code plugin (see the README). For the Claude app and other chat products, upload ag-data-commons.zip below."
           } > dist/notes.md
           flags=""
           if [ "$PRERELEASE" = "true" ]; then flags="--prerelease --target main"; fi

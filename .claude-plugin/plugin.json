@@ -1,7 +1,7 @@
 {
   "name": "ag-data-skills",
-  "version": "0.1.0",
-  "description": "Agent skills for Australian farm data: combine spray records, check withholding periods and convert records between formats, built on an open, agent-governed commons of data specifications (bundled snapshot included, works offline).",
+  "version": "0.2.0",
+  "description": "An agent skill that lets common data specifications for Australian agriculture emerge from agents doing real jobs with messy farm data (combining spray records, checking withholding periods, converting formats). Bundled snapshot included, works offline.",
   "author": {
     "name": "More Than Machines",
     "url": "https://github.com/morethanmachines"
@@ -9,5 +9,12 @@
   "homepage": "https://github.com/morethanmachines/ag-data-skills",
   "repository": "https://github.com/morethanmachines/ag-data-skills",
   "license": "Apache-2.0 AND CC-BY-4.0",
-  "keywords": ["agriculture", "farm data", "spray diary", "withholding period", "australia", "data standards"]
+  "keywords": [
+    "agriculture",
+    "farm data",
+    "spray diary",
+    "withholding period",
+    "australia",
+    "data standards"
+  ]
 }

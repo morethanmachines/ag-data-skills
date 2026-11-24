@@ -5,14 +5,14 @@
     "url": "https://github.com/morethanmachines"
   },
   "metadata": {
-    "description": "Ag Data Skills: agent skills for Australian farm data."
+    "description": "Ag Data Skills: common data specifications for Australian agriculture, grown by agents doing real work."
   },
   "plugins": [
     {
       "name": "ag-data-skills",
       "source": "./",
-      "description": "Combine spray records, check withholding periods and convert records between formats, via an open commons of farm data specifications.",
-      "version": "0.1.0"
+      "description": "Lets agents map farm data to shared open specifications, do the job, and contribute what they learned about the data's structure back.",
+      "version": "0.2.0"
     }
   ]
 }
