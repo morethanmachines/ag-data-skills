@@ -26,3 +26,20 @@
 | Cost | 27 turns, about 4 minutes |
 
 One run with one model family. The Phase 1 baseline (issue #7) repeats this across model families.
+
+## Rerun with v0.2 (one skill)
+
+*2026-11-24.* After the pack was replaced by the single `ag-data-commons` skill (`docs/decisions/0002-single-skill.md`), the offline run was repeated with the same prompt, the same restrictions and a fresh pack built from the v0.2.0 release zip, so only that one skill was installed.
+
+| Measure | Result |
+|---|---|
+| Skill triggered unprompted | ag-data-commons (the prompt does not name it) |
+| Web or network calls | 0; no permission denials |
+| Mapped documents | one per export; each validates against the viticulture profile |
+| Task 1 | 28 of 28 block and product totals within 1%, units correct |
+| Task 2 | both breaches found, no false positives |
+| Task 3 | 49 rows; 85 of 85 product rows match on date, block, product, rate, unit and water |
+| Consistency | the agent reported that all three exports agree on every application, and that the converted file duplicates the existing GrapeLog export |
+| Cost | 19 turns, about 3 minutes |
+
+Again one run with one model family.
