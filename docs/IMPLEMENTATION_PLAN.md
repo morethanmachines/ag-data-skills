@@ -4,39 +4,30 @@
 
 ## 0. Shape of v1
 
-Ag Data Skills is a pack of practical agent skills for people who work with Australian farm data, built on an open commons of data specifications that grows as the skills are used. People install it for the everyday jobs. The commons is what makes those jobs work, and it improves as a side effect.
+Ag Data Skills is an agent skill that lets common data specifications for Australian agriculture emerge from agents doing real jobs with messy farm data. People use it for everyday jobs with their data; to do each job the agent maps the data to the commons, and afterwards it contributes what it learned about the data's structure, so the specifications grow from use rather than being designed in advance.
 
 Version 1 is one public GitHub repository, `morethanmachines/ag-data-skills`, containing three things:
 
-1. **The skill pack** (`skills/`): a few task skills for everyday jobs, a core skill that handles spec lookup, mapping, evidence and contribution, a one-time setup skill and a router skill (section 0.1).
+1. **The skill** (`skills/ag-data-commons/`): one skill that tells agents how to look up, map to, use and grow the common specifications (section 0.1).
 2. **The commons**: specs, profiles, crosswalks, code lists, fixtures, tasks and governance rules.
-3. **GitHub Actions workflows** that act as the deterministic gate: they validate contributions, compare agent outputs with expected fixture outputs, check for leaked data, count reciprocal reviews, merge, write decision records, and build the snapshot bundled into the skills (section 4.5).
+3. **GitHub Actions workflows** that act as the deterministic gate: they validate contributions, compare agent outputs with expected fixture outputs, check for leaked data, count reciprocal reviews, merge, write decision records, and build the snapshot bundled into the skill (section 4.5).
 
 There is no CLI to install, no MCP server and no hosted coordinator in v1. The agent does all the judgement work (finding, mapping, drafting, reviewing). The Actions do the parts that must give the same answer every time. Anything heavier is deferred until evidence says it is needed (section 12).
 
 The repository is hosted under More Than Machines to start with, as a working concept for discussion that is ready to use when someone wants to try it. It can be transferred to a neutral organisation later; GitHub keeps old links working after a transfer.
 
-### 0.1 The skill pack
+### 0.1 The skill
 
-The pack copies what has made developer skill collections such as `mattpocock/skills` spread: real working tools rather than a framework, a one-command install, a setup step and a router.
+There is one skill, `ag-data-commons`. Its job is to tell agents how to collaborate on common specifications while they do their users' work: find the spec and crosswalk, fingerprint the source, map with evidence tiers, validate, do the user's job from the mapped data, and contribute sightings, crosswalks, extension reports and fixes in the background. Its description names the everyday jobs (combining spray records, checking withholding periods, converting between formats) so agents use it whenever farm data is involved, and `references/jobs.md` gives worked guidance for those jobs. Settings (industries, whether to contribute, budget) are asked once, the first time, and kept in a small settings file.
 
-| Skill | Invoked by | What it does |
-|---|---|---|
-| `setup-ag-data-skills` | User, once | Asks which industries the user works in, whether to contribute to the commons (explaining in two sentences what that means), and the contribution budget. Writes a small settings file the other skills read |
-| `ask-ag-data` | User | Router: describes the user's situation back and points to the right skill |
-| `ag-data-commons` | Model | Core skill used by all the others: find the spec and crosswalk, fingerprint the source, map with evidence tiers, validate, contribute sightings, crosswalks and fixes in the background |
-| `combine-spray-records` | User or model | Merges spray records from several sources (app exports, contractor jobs, spreadsheets) into one clean, de-duplicated set mapped to the shared spray diary spec, and reports conflicts and gaps |
-| `check-withholding` | User or model | Checks harvest and grazing withholding periods against planned dates, per block or paddock, and explains any breach |
-| `convert-spray-records` | User or model | Converts spray records into another system's layout or a buyer's or auditor's format, via the spec, and reports anything that cannot be carried across |
-
-Every task skill calls `ag-data-commons` first, so every everyday job does the spec work. New task skills are added for new domains as the commons grows (for example soil test interpretation).
+There are no separate task, setup or router skills. They would hide the core idea, and a capable model does the arithmetic of a job unaided; what it lacks is the behaviour of mapping to a shared spec with evidence and contributing back (decision 0002 in `docs/decisions/`).
 
 **Install routes**, all documented in the README:
 - `npx skills@latest add morethanmachines/ag-data-skills` for Claude Code, Codex and other agents that support the skills format.
 - A Claude Code plugin manifest (`.claude-plugin/`) so it installs with `/plugin install`, with a later aim of an official marketplace listing.
-- A release asset per skill (zip) for uploading to the Claude app and other chat products that accept skill uploads.
+- A release asset (zip) of the skill for uploading to the Claude app and other chat products that accept skill uploads.
 
-**Working without a shell.** Agronomists, consultants and farmers mostly use chat apps, not terminals, and in many of those the skill has no shell, no git and possibly no network access. So the skills MUST work from a bundled snapshot of the commons (section 4.5). Lookup and mapping work anywhere skills run. Contribution happens only where a shell and an authenticated `gh` are available; elsewhere the skill simply does the user's task.
+**Working without a shell.** Agronomists, consultants and farmers mostly use chat apps, not terminals, and in many of those the skill has no shell, no git and possibly no network access. So the skill MUST work from a bundled snapshot of the commons (section 4.5). Lookup and mapping work anywhere skills run. Contribution happens only where a shell and an authenticated `gh` are available; elsewhere the skill simply does the user's task.
 
 **Credibility.** The README leads with the practical jobs, then explains who built it and why: More Than Machines' work across Australian agriculture, the Australian Farm Data Code, and the Wine Australia spray diary specification the first shared spec builds on.
 
@@ -57,7 +48,7 @@ Every task skill calls `ag-data-commons` first, so every everyday job does the s
 ag-data-skills/
   README.md                     # leads with the practical jobs and install routes
   .claude-plugin/               # Claude Code plugin manifest
-  skills/<skill>/SKILL.md       # the skill pack (section 0.1)
+  skills/ag-data-commons/       # the skill (section 0.1)
   skills/ag-data-commons/snapshot/   # generated: bundled snapshot of the commons (section 4.5)
   GOVERNANCE.md                 # generated from governance/config.yaml by a workflow
   CONTRIBUTING.md               # licence terms (CC-BY 4.0) and the no-farm-data rule
@@ -401,7 +392,7 @@ The commons starts with one reference spec: the spray diary specification More T
 
 **Code lists and external data:** grapevine varieties with Wine Australia codes and synonyms and E-L growth stages in `codelists/` (tagged viticulture); a general product type list and UCUM units (shared); Wine Australia GI regions (CC-BY 4.0 Australia) registered in `external/registry.yaml`. Attribute everything derived from the reference spec to Wine Australia and More Than Machines in `NOTICE` and in each spec's `x-cp-external-basis`.
 
-**Seeded so it works on day one.** More Than Machines' agent produces these three specs and the profile before launch, as `bootstrap: true` contributions, so anyone can use the pack immediately. In doing so it fixes the reference spec's obvious defects: misspelt properties (`vinyard`, `sprary_width_unit`, `lattitude`), a required `schema_version` that does not exist, draft-04 tuple-form arrays that only validate the first element, quantities typed as strings or integers, free-text units, every field being required, and viticulture fields built into the core record. The original schema and example are kept in `shared/specs/spray-diary/reference/` for provenance.
+**Seeded so it works on day one.** More Than Machines' agent produces these three specs and the profile before launch, as `bootstrap: true` contributions, so anyone can use the skill immediately. In doing so it fixes the reference spec's obvious defects: misspelt properties (`vinyard`, `sprary_width_unit`, `lattitude`), a required `schema_version` that does not exist, draft-04 tuple-form arrays that only validate the first element, quantities typed as strings or integers, free-text units, every field being required, and viticulture fields built into the core record. The original schema and example are kept in `shared/specs/spray-diary/reference/` for provenance.
 
 **Left open for agents.** Questions that need evidence from real use are logged in the shared spec's `KNOWN_ISSUES.md` rather than settled in the seed:
 
@@ -429,9 +420,9 @@ Block lifecycle (splits and merges), identifiers across organisations and data g
 - Seed the commons so it works on day one (section 13): the shared spray diary 0.1.0 draft, the viticulture profile, the vineyard block 0.1.0 draft, the code lists, and the original reference schema kept for provenance. These are recorded as `bootstrap: true` decision records, contributed by More Than Machines' agent.
 - Add `test-data/spray-diary-01` and `spray-diary-02` as fixtures (exports and reference files public; ground truth to the private hidden-fixtures repository) and their tasks.
 - `checks`, `scrub`, `build-index` and `release` workflows, with the `ci/` module and its unit tests; `governance/industries.yaml`.
-- The skill pack v0.1 (section 0.1), the plugin manifest, the README, and a first release with the bundled snapshot.
+- The skill (section 0.1), the plugin manifest, the README, and a first release with the bundled snapshot.
 
-Acceptance: specs, profile and code lists validate in CI; scrub unit tests pass; a test PR containing a valid ABN is closed automatically; the pack installs with `npx skills add` and as a Claude Code plugin; a fresh agent with the pack installed and no network access can map the spray-diary-01 exports from the bundled snapshot and answer the three tasks.
+Acceptance: specs, profile and code lists validate in CI; scrub unit tests pass; a test PR containing a valid ABN is closed automatically; the skill installs with `npx skills add` and as a Claude Code plugin; a fresh agent with the skill installed and no network access can map the spray-diary-01 exports from the bundled snapshot and answer the three tasks.
 
 ### Phase 1: Baseline
 
@@ -445,7 +436,7 @@ Acceptance: a written baseline (accuracy, rough edges found, spec issues identif
 
 - `fixture-match`, `assign-reviews`, `owed-reviews`, `review-tally`, `fallback-review`, `merge`, `stale`, `build-index` and `sightings` workflows, with workflow tests.
 - PR template and manifest; structured reviews; decision records; bootstrap mode.
-- Skill pack v0.2 with background contribution and reciprocal review.
+- A skill release with background contribution and reciprocal review.
 - Run Scenario 01 variant B, then Scenario 02 (grains) against the result.
 
 Acceptance: with only agents acting, crosswalks for all three spray-diary-01 export formats are merged, and the open starting issues in `KNOWN_ISSUES.md` are worked on through merged PRs; Scenario 02 adds a grains profile, and any change it needed to the shared spec is recorded as a finding; a fixture-mismatched PR and a single-family-reviewed PR both fail to merge; a PR submitted when no other PRs are open is reviewed by `fallback-review` agents and merges.
@@ -476,8 +467,8 @@ Chosen from extension usage and fingerprint reports (soil test results and broad
 
 ## 16. Definition of done for v1
 
-- Anyone can install the pack in one step, in a coding agent or a chat app, and use `combine-spray-records`, `check-withholding` and `convert-spray-records` on their own spray records from day one.
-- An agent with the pack can take the spray-diary-01 and spray-diary-02 exports and answer their tasks correctly, including from the bundled snapshot with no network access.
+- Anyone can install the skill in one step, in a coding agent or a chat app, and use it to combine, check and convert their own spray records from day one.
+- An agent with the skill can take the spray-diary-01 and spray-diary-02 exports and answer their tasks correctly, including from the bundled snapshot with no network access.
 - With contribution enabled, its agent contributes crosswalks, spec fixes and reviews through pull requests in the background, and merges happen with no human action.
 - Every decision is in `records/` and reproducible from the repository.
 - The baseline report and the first state of the commons report are published.

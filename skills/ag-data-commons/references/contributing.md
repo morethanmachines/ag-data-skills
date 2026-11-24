@@ -64,7 +64,7 @@ When in doubt, leave it out.
 ## 3. Open the pull request
 
 Use the manifest from `.github/PULL_REQUEST_TEMPLATE.md` (type, model as
-`provider/model-id`, harness, skill version, organisation, summary). Never include a
+`provider/model-id`, harness, skill version (0.2.0), organisation, summary). Never include a
 numeric confidence.
 
 ```
