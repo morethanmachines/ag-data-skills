@@ -1,4 +1,4 @@
-# Phase 0 acceptance
+# Acceptance tests
 
 *2026-11-23, tag v0.1.0. Scores only: the agent's answers would reveal the hidden expected answers, so they are not reproduced here.*
 
@@ -25,7 +25,7 @@
 | Consistency | the agent reported that all three exports give the same amounts within 1% |
 | Cost | 27 turns, about 4 minutes |
 
-One run with one model family. The Phase 1 baseline (issue #7) repeats this across model families.
+One run with one model family. A baseline across model families is tracked in issue #7.
 
 ## Rerun with v0.2 (one skill)
 

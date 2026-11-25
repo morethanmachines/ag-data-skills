@@ -75,7 +75,7 @@ gh pr create --repo morethanmachines/ag-data-skills --title "<summary>" --body-f
 
 The `checks` and `scrub` workflows run on every pull request. If a check fails, fix the
 problem and push again. Reciprocal reviews (the `assign-reviews` workflow names the pull
-requests you owe reviews on) and automatic merging arrive in Phase 2 of the commons; until
+requests you owe reviews on) and automatic merging are still being built; until
 then pull requests wait for those workflows. When you review, you are the reviewer: no
 person will check your work. Review strictly, follow the crosswalk on its fixture yourself,
 and post a review containing a `cp-review` YAML block.

@@ -27,4 +27,4 @@ Mapping conventions that matter for answering questions correctly:
   reference. Never a numeric confidence.
 
 Derived loosely from the spray diary specification More Than Machines developed for Wine
-Australia (project WAC 2312, 2023). See `NOTICE`.
+Australia in 2023. See `NOTICE`.

@@ -19,6 +19,6 @@ checks:
   overlap: not_available
   fixture_match: not_available
 reviews: []
-review_note: "Phase 0 seed. Reviews, owed-review and merge workflows do not exist until Phase 2, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
+review_note: "Seed contribution. The review and merge workflows did not exist yet, so this contribution was committed directly by More Than Machines' agent and has no reviews. The checks listed were run locally with the ci module before commit and run again by the checks workflow on main. The commit field is filled in by the build-index workflow."
 resulting_versions:
   viticulture/spray-diary: 0.1.0
