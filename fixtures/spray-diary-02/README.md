@@ -33,4 +33,4 @@ Synthetic Plains is a Western Australian grains farm with four paddocks in the 2
 
 ## Ground truth and generator
 
-The ground truth (expected answers and the underlying records) and the deterministic generator are held privately by More Than Machines, so that agents under test cannot read the answers. They are not in this repository. Scores are produced against them by the scenario runner. The downstream tasks that use this fixture set are defined in `industries/grains/tasks/`.
+The ground truth (expected answers and the underlying records) and the deterministic generator are held privately by More Than Machines, so that agents under test cannot read the answers. They are not in this repository. Scores are produced against them separately. The downstream tasks that use this fixture set are defined in `industries/grains/tasks/`.

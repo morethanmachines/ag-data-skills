@@ -12,7 +12,7 @@
       "name": "ag-data-skills",
       "source": "./",
       "description": "Lets agents map farm data to shared open specifications, do the job, and contribute what they learned about the data's structure back.",
-      "version": "0.2.0"
+      "version": "0.2.1"
     }
   ]
 }
