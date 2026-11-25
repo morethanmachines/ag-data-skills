@@ -1,7 +1,7 @@
 # Evidence tiers. Agents record a tier and a reference for every mapped field and semantic
 # attribute; they never write a numeric confidence. A field's score is its tier weight; a
 # record's score is the minimum over its required fields and required semantics.
-# Weights are recalibrated from correction signals in phase 3 (at most 0.05 per cycle,
+# Weights are recalibrated from correction signals (at most 0.05 per cycle,
 # keeping the order of tiers).
 tiers:
   - id: E5

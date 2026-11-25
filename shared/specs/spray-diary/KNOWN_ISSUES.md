@@ -32,23 +32,21 @@ directly.
 
 ## Seed limitations
 
-6. **Upstream licence unconfirmed.** The reference spec this draft follows loosely has no
-   licence in its repository. Until reuse terms are confirmed, nothing from it is copied into the commons: no verbatim reference
-   schema or example, no grapevine variety list and no E-L stage descriptions. Tracked as a
-   GitHub issue.
+6. **Nothing copied from the reference spec.** This draft follows the reference spec
+   loosely. It includes no verbatim reference schema or example, no grapevine variety list
+   and no E-L stage descriptions.
 7. **Units use UCUM codes.** UCUM writes hectare as `har` (`ha` would be a hecto-annum).
    `codelists/units` lists the codes the spec expects with plain labels. Whether agents
-   reliably use UCUM codes rather than familiar labels is a question for the Phase 1
-   consistency test.
+   reliably use UCUM codes rather than familiar labels is a question for the
+   consistency test across model families.
 8. **Rate basis.** `codelists/rate-basis` fixes the denominators (per hectare, per 100 L
    dilute, per 100 L tank, per plant, per 100 m of row). Rates per acre must be converted.
    Whether a fixed list is better than a free denominator quantity is open.
 
-## Defects in the reference spec that this draft fixes
+## Differences from the reference spec
 
-Recorded for provenance (decision record `bootstrap-0001`): misspelt properties
-(`vinyard`, `sprary_width_unit`, `lattitude`); a required `schema_version` that the schema
-never defines; draft-04 tuple-form `items` arrays that validate only the first element;
-quantities typed as strings or integers; free-text units; every field required; personal
-details (addresses, phone numbers) repeated in every record; and viticulture fields
-(vineyard, variety, E-L stage, vintage, wine company comment) built into the core record.
+Recorded for provenance (decision record `bootstrap-0001`). This draft is industry-neutral:
+viticulture fields (vineyard, variety, E-L stage, vintage, wine company comment) move to
+the viticulture profile. It uses JSON Schema 2020-12, types quantities as numbers with
+UCUM units, keeps optional fields optional, and refers to parties rather than repeating
+their details in every record.

@@ -155,7 +155,7 @@
         },
         "variety": {
           "type": "object",
-          "description": "Grapevine variety planted. A variety code list is pending confirmation of reuse terms (KNOWN_ISSUES).",
+          "description": "Grapevine variety planted. There is no variety code list yet (KNOWN_ISSUES).",
           "properties": {
             "name": {
               "type": "string",

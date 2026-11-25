@@ -7,12 +7,12 @@ entries:
   - id: reference-spray-diary-2023
     name: Australian spray diary specification and row/block id specification (reference spec)
     kind: reference_spec
-    publisher: More Than Machines, for Wine Australia (project WAC 2312, 2023)
+    publisher: More Than Machines, for Wine Australia (2023)
     url: https://github.com/morethanmachines/project-harmony
     licence: none stated in the repository
     licence_confirmed: false
     industries: [viticulture]
-    use: Loose structural reference for shared/specs/spray-diary and industries/viticulture/specs/vineyard-block. Nothing is copied from it until its licence is confirmed (KNOWN_ISSUES, issue tracker).
+    use: Loose structural reference for shared/specs/spray-diary and industries/viticulture/specs/vineyard-block. Nothing is copied from it.
   - id: grapevine-variety-list
     name: Australian grapevine variety list with Wine Australia codes and synonyms
     kind: code_list
@@ -21,7 +21,7 @@ entries:
     licence: unconfirmed
     licence_confirmed: false
     industries: [viticulture]
-    use: Intended source for a viticulture variety code list once reuse terms are confirmed. Until then variety is free text plus an optional code.
+    use: Possible source for a viticulture variety code list. Not included; variety is free text plus an optional code.
   - id: el-growth-stages
     name: Modified Eichhorn-Lorenz (E-L) system of grapevine growth stages
     kind: scale
@@ -31,7 +31,7 @@ entries:
     licence: unconfirmed for the stage descriptions
     licence_confirmed: false
     industries: [viticulture]
-    use: Crop stage scale "E-L" (integer stage numbers 1 to 47). Stage descriptions are not reproduced until reuse terms are confirmed.
+    use: Crop stage scale "E-L" (integer stage numbers 1 to 47). Stage descriptions are not reproduced.
   - id: zadoks
     name: Zadoks decimal code for the growth stages of cereals
     kind: scale
