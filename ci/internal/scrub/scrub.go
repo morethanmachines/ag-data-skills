@@ -1,6 +1,6 @@
 // Package scrub implements the privacy check: it rejects contributions that look as if they
 // contain real farm data. It is a backstop; the skill is responsible for never contributing
-// such data in the first place (implementation plan, section 6).
+// such data in the first place.
 package scrub
 
 import (

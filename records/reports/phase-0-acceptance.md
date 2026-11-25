@@ -29,7 +29,7 @@ One run with one model family. The Phase 1 baseline (issue #7) repeats this acro
 
 ## Rerun with v0.2 (one skill)
 
-*2026-11-24.* After the pack was replaced by the single `ag-data-commons` skill (`docs/decisions/0002-single-skill.md`), the offline run was repeated with the same prompt, the same restrictions and a fresh pack built from the v0.2.0 release zip, so only that one skill was installed.
+*2026-11-24.* After the pack was replaced by the single `ag-data-commons` skill, the offline run was repeated with the same prompt, the same restrictions and a fresh pack built from the v0.2.0 release zip, so only that one skill was installed.
 
 | Measure | Result |
 |---|---|

@@ -1,5 +1,5 @@
-// Package overlap measures how much a draft spec duplicates an existing spec
-// (implementation plan, 3.1). The score is the share of the draft's meaningful property
+// Package overlap measures how much a draft spec duplicates an existing spec.
+// The score is the share of the draft's meaningful property
 // names that an existing spec already has, with half credit when the kinds differ.
 package overlap
 
