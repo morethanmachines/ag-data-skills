@@ -14,6 +14,10 @@ permissions:
 
 jobs:
   checks:
+    # Editing a closed pull request must not re-run the checks. A skipped job counts as a
+    # pass, so it takes a different name and can never satisfy the required "checks" status.
+    name: ${{ github.event.pull_request.state == 'closed' && 'closed pull request (not checked)' || 'checks' }}
+    if: github.event.pull_request.state != 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

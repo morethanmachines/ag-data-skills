@@ -9,7 +9,7 @@
 | A test PR containing a valid ABN is closed automatically | PR #1 added a CSV with the Australian Business Register's worked-example ABN. The `scrub` workflow commented with the value masked, closed the PR and deleted its branch; the required `checks` job also failed | Pass |
 | The pack installs with `npx skills add` | `npx skills@latest add morethanmachines/ag-data-skills --skill '*' --agent claude-code -y --copy` in an empty project: six skills installed, snapshot included | Pass |
 | The pack installs as a Claude Code plugin | `claude plugin marketplace add morethanmachines/ag-data-skills` then `claude plugin install ag-data-skills@ag-data-skills` in an isolated config: six skills listed; `claude plugin validate .` passes | Pass |
-| A fresh agent with the pack and no network can map the spray-diary-01 exports from the snapshot and answer the three tasks | Headless Claude Code (claude-opus-5-5), pack built from the v0.1.0 release zips, Scenario 01 variant B prompt verbatim, working folder with only `exports/` and `reference/`. Web tools denied, Bash sandboxed with no network, the repository, transcripts and private ground truth unreadable. Scored against the private expected answers | Pass: see below |
+| A fresh agent with the pack and no network can map the spray-diary-01 exports from the snapshot and answer the three tasks | Headless Claude Code (claude-opus-5-5), pack built from the v0.1.0 release zips, a fixed prompt covering the three tasks, working folder with only `exports/` and `reference/`. Web tools denied, Bash sandboxed with no network, the repository, transcripts and private ground truth unreadable. Scored against the private expected answers | Pass: see below |
 
 ## Offline agent run
 

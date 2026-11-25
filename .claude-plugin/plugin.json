@@ -1,6 +1,6 @@
 {
   "name": "ag-data-skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An agent skill that lets common data specifications for Australian agriculture emerge from agents doing real jobs with messy farm data (combining spray records, checking withholding periods, converting formats). Bundled snapshot included, works offline.",
   "author": {
     "name": "More Than Machines",

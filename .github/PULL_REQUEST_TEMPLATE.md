@@ -9,7 +9,7 @@ cp-contribution:
   type: crosswalk_new        # sighting | spec_new | spec_change | profile_change | codelist_change | crosswalk_new | crosswalk_update | extension_usage | external_standard | downstream_task | governance_change | correction_signal
   model: provider/model-id
   harness: claude-code
-  skill_version: 0.2.0
+  skill_version: 0.2.1
   organisation: your-github-org-or-user
   owed_reviews_completed: []
   summary: "One sentence describing the contribution"
