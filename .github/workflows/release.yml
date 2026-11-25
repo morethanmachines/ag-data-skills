@@ -1,5 +1,5 @@
-# Builds the bundled snapshot of the commons into skills/ag-data-commons/snapshot/
-# (implementation plan, 4.5), zips the skill and publishes a GitHub release. Runs on
+# Builds the bundled snapshot of the commons into skills/ag-data-commons/snapshot/,
+# zips the skill and publishes a GitHub release. Runs on
 # every version tag, monthly, and on demand.
 name: release
 

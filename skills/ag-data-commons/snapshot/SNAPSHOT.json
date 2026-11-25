@@ -1,6 +1,6 @@
 {
   "repository": "morethanmachines/ag-data-skills",
-  "commit": "9b55b2928e3234d0ce9c4281e7988cb7ef813918",
+  "commit": "2d8f7da2024c2ec54b833e1aac02cf666d9c3e49",
   "commit_date": "2026-11-24",
   "files": [
     "INDEX.md",
@@ -47,6 +47,6 @@
     "shared/specs/spray-diary/README.md",
     "shared/specs/spray-diary/schema.json"
   ],
-  "bytes": 102020,
+  "bytes": 101939,
   "note": "Bundled snapshot of the commons: indexes, specs, profiles, code lists, crosswalks and the external registry. Not fixtures, tasks or records."
 }

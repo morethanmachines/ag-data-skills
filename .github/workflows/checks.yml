@@ -1,4 +1,4 @@
-# Deterministic gate for every contribution (implementation plan, 7.2). It runs the ci
+# Deterministic gate for every contribution. It runs the ci
 # module from the base branch against the pull request's files. No step waits for a person.
 name: checks
 

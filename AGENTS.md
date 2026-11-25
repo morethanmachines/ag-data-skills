@@ -8,6 +8,8 @@ It is being started by More Than Machines (Andrew Skinner), an AI research lab w
 
 ## Read first
 
+`docs/` is local only: it is git-ignored and must not be committed or pushed, because it holds plans, decisions and questions that are not public.
+
 1. `docs/OVERVIEW.md`: intent, design and how success is measured.
 2. `docs/IMPLEMENTATION_PLAN.md`: the build specification. This is the source of truth for what to build. Where it says MUST, it is a hard requirement.
 3. `docs/scenarios/`: Scenario 01 (viticulture) and Scenario 02 (grains).

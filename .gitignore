@@ -3,6 +3,6 @@ __pycache__/
 *.pyc
 *.tgz
 /private/
-/docs/KICKOFF_PROMPT.md
+/docs/
 /dist/
 /ci/bin/

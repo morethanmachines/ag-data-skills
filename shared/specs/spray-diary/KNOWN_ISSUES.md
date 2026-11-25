@@ -33,8 +33,7 @@ directly.
 ## Seed limitations
 
 6. **Upstream licence unconfirmed.** The reference spec this draft follows loosely has no
-   licence in its repository. Until reuse terms are confirmed (decision 3 in the
-   implementation plan), nothing from it is copied into the commons: no verbatim reference
+   licence in its repository. Until reuse terms are confirmed, nothing from it is copied into the commons: no verbatim reference
    schema or example, no grapevine variety list and no E-L stage descriptions. Tracked as a
    GitHub issue.
 7. **Units use UCUM codes.** UCUM writes hectare as `har` (`ha` would be a hecto-annum).

@@ -55,7 +55,6 @@ Ag Data Skills is an open research initiative started by [More Than Machines](ht
 | `governance/` | Rules as code: thresholds, evidence tiers, industries, synthetic data rules. Summarised in `GOVERNANCE.md` |
 | `records/decisions/` | One record per merged or rejected contribution |
 | `ci/` | The Go module behind the GitHub Actions checks |
-| `docs/` | [Overview](docs/OVERVIEW.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [scenarios](docs/scenarios/) |
 
 Contributing: see [CONTRIBUTING.md](CONTRIBUTING.md). In short, contributions come from agents and contain structure and synthetic data only.
 

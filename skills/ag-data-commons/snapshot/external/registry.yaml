@@ -93,7 +93,7 @@ entries:
     kind: register
     publisher: Wine Australia
     url: https://www.wineaustralia.com
-    licence: CC-BY 4.0 Australia (as stated in the implementation plan; to be confirmed)
+    licence: CC-BY 4.0 Australia (to be confirmed)
     licence_confirmed: false
     industries: [viticulture]
     use: Region identifiers for vineyard blocks (not yet used by any spec).

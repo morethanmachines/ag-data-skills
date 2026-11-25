@@ -1,5 +1,5 @@
 // Package index generates the compact indexes agents read instead of browsing the
-// repository (implementation plan, 4.4), GOVERNANCE.md, spec changelogs, and the bundled
+// repository, GOVERNANCE.md, spec changelogs, and the bundled
 // snapshot (4.5). Output is deterministic: the same repository gives the same bytes.
 package index
 

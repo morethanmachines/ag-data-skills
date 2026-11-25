@@ -1,5 +1,5 @@
 // Package checks implements the deterministic repository checks run by the checks
-// workflow (implementation plan, 7.2). Every check returns findings; an empty result means
+// workflow. Every check returns findings; an empty result means
 // the repository passes.
 package checks
 

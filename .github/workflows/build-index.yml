@@ -1,5 +1,5 @@
 # Regenerates the indexes, GOVERNANCE.md and changelogs on every push to main
-# (implementation plan, 4.4), and fills in decision record commit hashes. It pushes with the
+# and fills in decision record commit hashes. It pushes with the
 # workflow deploy key, so its commit triggers one more run, which finds nothing to commit.
 name: build-index
 

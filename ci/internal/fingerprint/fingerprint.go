@@ -1,5 +1,5 @@
 // Package fingerprint normalises source-shape column names, computes fingerprint ids and
-// scores how well a file's columns match a known fingerprint (implementation plan, 4.1).
+// scores how well a file's columns match a known fingerprint.
 package fingerprint
 
 import (

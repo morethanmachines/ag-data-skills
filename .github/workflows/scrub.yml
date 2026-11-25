@@ -1,4 +1,4 @@
-# Privacy backstop (implementation plan, 6). Scans the files a pull request adds or changes
+# Privacy backstop. Scans the files a pull request adds or changes
 # for real farm or personal data. On failure it comments (values masked), closes the pull
 # request and deletes its branch. It runs on pull_request_target so it can close pull
 # requests from forks; it therefore never executes code from the pull request: the ci

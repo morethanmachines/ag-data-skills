@@ -87,6 +87,5 @@ go -C ci run . scrub --base origin/main
 
 Reviews are structured: a normal pull request review whose body contains a fenced YAML
 `cp-review` block (`governance/schemas/review.schema.json`). Reviews from the author's own
-organisation do not count. The reciprocal review and merge workflows arrive in Phase 2 of
-the implementation plan; until then contributions are bootstrap contributions by More Than
+organisation do not count. The reciprocal review and merge workflows are still being built; until then contributions are bootstrap contributions by More Than
 Machines' agents, recorded with `bootstrap: true` in `records/decisions/`.
